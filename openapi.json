@@ -18,7 +18,7 @@
     },
     {
       "name": "Login",
-      "description": "Authentification processes"
+      "description": "Authentication processes"
     },
     {
       "name": "Positions",
@@ -54,7 +54,7 @@
         "operationId": "Login_getCredentials",
         "responses": {
           "200": {
-            "description": "Invoice successfuly generated.",
+            "description": "Invoice successfully generated.",
             "content": {
               "application/json": {
                 "schema": {
@@ -83,7 +83,7 @@
         "security": [],
         "deprecated": false,
         "summary": "Register a new account.",
-        "description": "Pay the invoice generated through a `/login/credentials` **GET** request and then use `paymentHash` to certify validity and finaly create the account.",
+        "description": "Pay the invoice generated through a `/login/credentials` **GET** request and then use `paymentHash` to certify validity and finally create the account.",
         "operationId": "Login_registerCredentials",
         "requestBody": {
           "required": true,
@@ -321,7 +321,7 @@
         "security": [],
         "deprecated": false,
         "summary": "LNURL Auth String",
-        "description": "LNURL string used to create a account or connect to a existing account.\nThe user wallet will sign a message using the provided k1 inside the LNURL\n",
+        "description": "LNURL string used to create an account or connect to a existing account.\nThe user wallet will sign a message using the provided k1 inside the LNURL.\n",
         "operationId": "LNURL_authCreate",
         "responses": {
           "200": {
@@ -485,7 +485,7 @@
         ],
         "security": [],
         "deprecated": false,
-        "description": "Use the browser extension [Joule](https://lightningjoule.com/) to authentificate user.",
+        "description": "Use the browser extension [Joule](https://lightningjoule.com/) to authenticate user.",
         "operationId": "Login_loginJoule",
         "requestBody": {
           "required": true,
@@ -609,7 +609,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Positions history sucessfuly fetched.",
+            "description": "Positions history sucessfully fetched.",
             "content": {
               "application/json": {
                 "schema": {
@@ -962,7 +962,7 @@
         },
         "responses": {
           "200": {
-            "description": "Position sucessfuly created.",
+            "description": "Position sucessfully created.",
             "content": {
               "application/json": {
                 "schema": {
@@ -1373,7 +1373,7 @@
         "operationId": "State_apiState",
         "responses": {
           "200": {
-            "description": "Services are running (not necessarly available).",
+            "description": "Services are running (not necessarily available).",
             "content": {
               "application/json": {
                 "schema": {
@@ -1567,10 +1567,10 @@
           }
         ],
         "deprecated": false,
-        "description": "Move funds from user wallet to the **[Lightning channel](https://medium.com/suredbits/lightning-101-what-are-lightning-channels-cfb80f440298)** with LN-Markets.",
+        "description": "Move funds from user wallet to the **[Lightning channel](https://medium.com/suredbits/lightning-101-what-are-lightning-channels-cfb80f440298)** with LN Markets.",
         "operationId": "User_deposit",
         "requestBody": {
-          "description": "Payload that countains all informations initiale a new deposit promise.",
+          "description": "Payload that contains all informations to initialize a new deposit.",
           "required": true,
           "content": {
             "application/json": {
@@ -1936,7 +1936,7 @@
           }
         ],
         "deprecated": false,
-        "description": "Move funds from the **[Lightning channel](https://medium.com/suredbits/lightning-101-what-are-lightning-channels-cfb80f440298)** with LN-Markets to user wallet by using an invoice directly.",
+        "description": "Move funds from the **[Lightning channel](https://medium.com/suredbits/lightning-101-what-are-lightning-channels-cfb80f440298)** with LN Markets to user wallet by using an invoice directly.",
         "operationId": "User_withdraw",
         "requestBody": {
           "description": "Payload that countains all informations to initiate a new withdraw.",
@@ -2027,7 +2027,7 @@
         "description": "Create a LNURL Withdraw.",
         "operationId": "User_withdrawLnurl",
         "requestBody": {
-          "description": "Amount the user want to withdraw.",
+          "description": "Amount the user wants to withdraw.",
           "required": true,
           "content": {
             "application/json": {
@@ -2093,7 +2093,7 @@
         "operationId": "User_logout",
         "responses": {
           "200": {
-            "description": "Sucessfuly logged out."
+            "description": "Sucessfully logged out."
           }
         }
       }
