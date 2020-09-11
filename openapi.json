@@ -2009,7 +2009,7 @@
       }
     },
     "/user/withdraw/lnurl": {
-      "get": {
+      "post": {
         "tags": [
           "User"
         ],
