@@ -577,10 +577,10 @@ The JWT must be provided within the header AUTHORIZATION like :</p>
 </code></pre></div>
 <p><code>GET /lnurl/a</code></p>
 
-<p><em>First request for LNURL where the wallet send the public key with the k1 and signature.</em></p>
+<p><em>Login via LNURL</em></p>
 
 <p>Verify the public key with the signature and the k1 to create a account or connect into a existing account.
-The connected state will be push over websockets</p>
+The connected state will be push over websockets.</p>
 
 <h3 id="lnurl_authentificate-parameters">Parameters</h3>
 
@@ -726,7 +726,7 @@ This operation does not require authentication
 </code></pre></div>
 <p><code>GET /lnurl/a/c</code></p>
 
-<p><em>LNURL Auth String</em></p>
+<p><em>Authentification string</em></p>
 
 <p>LNURL string used to create an account or connect to a existing account.
 The user wallet will sign a message using the provided k1 inside the LNURL.</p>
@@ -834,7 +834,7 @@ This operation does not require authentication
 </code></pre></div>
 <p><code>GET /lnurl/w</code></p>
 
-<p><em>Third LNURL withdraw request.</em></p>
+<p><em>Withdraw</em></p>
 
 <p>Use LNURL to withdraw from the user balance.</p>
 
@@ -948,7 +948,7 @@ This operation does not require authentication
 </code></pre></div>
 <p><code>GET /lnurl/w/r</code></p>
 
-<p><em>Second LNURL withdraw request.</em></p>
+<p><em>Invoice to withdraw</em></p>
 
 <p>Ask the Lightning wallet to create an invoice with amount and description.</p>
 
@@ -1161,7 +1161,7 @@ This operation does not require authentication
 </code></pre></div>
 <p><code>GET /login/credentials</code></p>
 
-<p><em>Informations needed to create an account.</em></p>
+<p><em>Request new credentials</em></p>
 
 <p>Generates an invoice for future use in the account creation process.</p>
 
@@ -1321,9 +1321,10 @@ This operation does not require authentication
 </code></pre></div>
 <p><code>PUT /login/credentials</code></p>
 
-<p><em>Register a new account.</em></p>
+<p><em>Register new credentials</em></p>
 
-<p>Pay the invoice generated through a <code>/login/credentials</code> <strong>GET</strong> request and then use <code>paymentHash</code> to certify validity and finally create the account.</p>
+<p>Pay the invoice generated through a <code>/login/credentials</code> <strong>GET</strong> request and then
+use <code>paymentHash</code> to certify validity and finally create the account.</p>
 
 <blockquote>
 <p>Body parameter</p>
@@ -1555,7 +1556,7 @@ This operation does not require authentication
 </code></pre></div>
 <p><code>POST /login/credentials</code></p>
 
-<p><em>Log into an existing account.</em></p>
+<p><em>Login via credentials</em></p>
 
 <p>Use existing credentials to log into an account.</p>
 
@@ -1790,6 +1791,8 @@ This operation does not require authentication
   <span class="nt">--data</span> <span class="s1">'{"type":"object","required":["message","signature","alias"],"properties":{"message":{"type":"string","example":"Test-Joule"},"signature":{"type":"string","example":"rd1nn7qbnibf58mzaknokqu6eciiqr64gahrzzxy3h8ybdygbun7s86zrms1dedqnh7t4gxz3esqmaqi9pkf85f48rexai7qztbdznfp"},"alias":{"type":"string","example":"Test-node"}},"additionalProperties":false}'</span>
 </code></pre></div>
 <p><code>POST /login/joule</code></p>
+
+<p><em>Login via Joule</em></p>
 
 <p>Use the browser extension <a href="https://lightningjoule.com/">Joule</a> to authenticate user.</p>
 
@@ -2035,7 +2038,7 @@ This operation does not require authentication
 </code></pre></div>
 <p><code>GET /positions</code></p>
 
-<p><em>Positions history. (Rework API Response - Object with Array of Objects)</em></p>
+<p><em>Positions history</em></p>
 
 <p>Retrieves either opened, closed or all positions.</p>
 
@@ -2597,7 +2600,7 @@ jwtAuth ( Scopes: positions ), cookieAuth
 </code></pre></div>
 <p><code>PUT /positions</code></p>
 
-<p><em>Update position parameters.</em></p>
+<p><em>Update a position</em></p>
 
 <p>Allows user to modify <code>stoploss</code> and <code>takeprofit</code> parameters of an existing position.</p>
 
@@ -2675,7 +2678,8 @@ jwtAuth ( Scopes: positions ), cookieAuth
 <h4 id='detailed-descriptions'>Detailed descriptions</h4>
 <p><strong>body</strong>: Payload with everything needed to update a position accordingly.</p>
 
-<p><strong>Pay attention : <code>stoploss</code> and <code>takeprofit</code> are mutually exclusives. This means you cannot send a request containing the two parameters at once.</strong></p>
+<p><strong>Pay attention : <code>stoploss</code> and <code>takeprofit</code> are mutually exclusives.
+This means you cannot send a request containing the two parameters at once.</strong></p>
 
 <blockquote>
 <p>Example responses</p>
@@ -2980,8 +2984,9 @@ jwtAuth ( Scopes: positions ), cookieAuth
 </tr>
 </tbody></table>
 <h4 id='detailed-descriptions-2'>Detailed descriptions</h4>
-<p><strong>body</strong>: Payload with all the information needed to setup a new position.
-if <code>side=&quot;l&quot;</code>, the property <code>price</code> must be included in the request to know when the position should be filled.</p>
+<p><strong>body</strong>: Payload with all the information needed to setup a new position.</p>
+
+<p><strong>If <code>type=&quot;l&quot;</code>, the property <code>price</code> must be included in the request to know when the position should be filled.</strong></p>
 <h4 id='enumerated-values-2'>Enumerated Values</h4>
 <table><thead>
 <tr>
@@ -3480,7 +3485,7 @@ jwtAuth ( Scopes: positions ), cookieAuth
 </code></pre></div>
 <p><code>DELETE /positions</code></p>
 
-<p><em>Close a position.</em></p>
+<p><em>Close a position</em></p>
 
 <p>Ends a contract and update user balance according to the <strong><a href="https://investinganswers.com/dictionary/p/profit-loss-pl-statement">P&amp;L</a></strong></p>
 
@@ -3991,6 +3996,8 @@ jwtAuth ( Scopes: positions ), cookieAuth
 </code></pre></div>
 <p><code>POST /positions/cancel</code></p>
 
+<p><em>Cancel a position</em></p>
+
 <p>Cancel the position linked to the given <code>pid</code>.<strong>Only works on positions that are not currently filled</strong>.</p>
 
 <blockquote>
@@ -4130,7 +4137,7 @@ jwtAuth ( Scopes: positions ), cookieAuth
 </code></pre></div>
 <p><code>GET /user</code></p>
 
-<p><em>Retrieves user informations.</em></p>
+<p><em>User informations</em></p>
 
 <p>Fetches UID, username, account type and current balance.</p>
 
@@ -4312,7 +4319,7 @@ jwtAuth ( Scopes: user ), cookieAuth
 </code></pre></div>
 <p><code>PUT /user</code></p>
 
-<p><em>Update user informations.</em></p>
+<p><em>Update password</em></p>
 
 <p>Update the current password to the requested one.</p>
 
@@ -4378,6 +4385,8 @@ jwtAuth ( Scopes: user ), cookieAuth
 <td>none</td>
 </tr>
 </tbody></table>
+<h4 id='detailed-descriptions-3'>Detailed descriptions</h4>
+<p><strong>body</strong>: Payload containing user credentials.</p>
 
 <h3 id="user_updateuser-responses">Responses</h3>
 
@@ -4392,7 +4401,7 @@ jwtAuth ( Scopes: user ), cookieAuth
 <tr>
 <td>200</td>
 <td><a href="https://tools.ietf.org/html/rfc7231#section-6.3.1">OK</a></td>
-<td>Password successfuly.</td>
+<td>Password successfuly updated.</td>
 <td>None</td>
 </tr>
 <tr>
@@ -4482,6 +4491,8 @@ jwtAuth ( Scopes: user ), cookieAuth
 </code></pre></div>
 <p><code>POST /user/deposit</code></p>
 
+<p><em>Deposit funds</em></p>
+
 <p>Move funds from user wallet to the <strong><a href="https://medium.com/suredbits/lightning-101-what-are-lightning-channels-cfb80f440298">Lightning channel</a></strong> with LN Markets.</p>
 
 <blockquote>
@@ -4541,6 +4552,8 @@ jwtAuth ( Scopes: user ), cookieAuth
 <td>none</td>
 </tr>
 </tbody></table>
+<h4 id='detailed-descriptions-4'>Detailed descriptions</h4>
+<p><strong>body</strong>: Payload that contains all informations to initialize a new deposit.</p>
 
 <blockquote>
 <p>Example responses</p>
@@ -4639,7 +4652,7 @@ jwtAuth ( Scopes: deposit ), cookieAuth
     <span class="s">'authorization'</span><span class="p">:</span> <span class="s">"Bearer {access-token}"</span>
     <span class="p">}</span>
 
-<span class="n">conn</span><span class="p">.</span><span class="n">request</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span> <span class="s">"/user/history?type=type%2Cstring%2Cpattern%2C%5E%5Ba-z%5D%2B%24%2Cenum%2Cwithdraw%2Cdeposit"</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+<span class="n">conn</span><span class="p">.</span><span class="n">request</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span> <span class="s">"/user/history?type=withdraw%2Cdeposit"</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
 
 <span class="n">res</span> <span class="o">=</span> <span class="n">conn</span><span class="p">.</span><span class="n">getresponse</span><span class="p">()</span>
 <span class="n">data</span> <span class="o">=</span> <span class="n">res</span><span class="p">.</span><span class="n">read</span><span class="p">()</span>
@@ -4651,7 +4664,7 @@ jwtAuth ( Scopes: deposit ), cookieAuth
   <span class="dl">"</span><span class="s2">method</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">GET</span><span class="dl">"</span><span class="p">,</span>
   <span class="dl">"</span><span class="s2">hostname</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">api.lnmarkets.com</span><span class="dl">"</span><span class="p">,</span>
   <span class="dl">"</span><span class="s2">port</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-  <span class="dl">"</span><span class="s2">path</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">/user/history?type=type%2Cstring%2Cpattern%2C%5E%5Ba-z%5D%2B%24%2Cenum%2Cwithdraw%2Cdeposit</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">path</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">/user/history?type=withdraw%2Cdeposit</span><span class="dl">"</span><span class="p">,</span>
   <span class="dl">"</span><span class="s2">headers</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
     <span class="dl">"</span><span class="s2">accept</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">application/json</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">authorization</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Bearer {access-token}</span><span class="dl">"</span>
@@ -4673,13 +4686,13 @@ jwtAuth ( Scopes: deposit ), cookieAuth
 
 <span class="nx">req</span><span class="p">.</span><span class="nx">end</span><span class="p">();</span>
 </code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--request</span> GET <span class="se">\</span>
-  <span class="nt">--url</span> <span class="s1">'https://api.lnmarkets.com/user/history?type=type%2Cstring%2Cpattern%2C%5E%5Ba-z%5D%2B%24%2Cenum%2Cwithdraw%2Cdeposit'</span> <span class="se">\</span>
+  <span class="nt">--url</span> <span class="s1">'https://api.lnmarkets.com/user/history?type=withdraw%2Cdeposit'</span> <span class="se">\</span>
   <span class="nt">--header</span> <span class="s1">'accept: application/json'</span> <span class="se">\</span>
   <span class="nt">--header</span> <span class="s1">'authorization: Bearer {access-token}'</span>
 </code></pre></div>
 <p><code>GET /user/history</code></p>
 
-<p><em>(Rework API Response - Object with Array of Objects)</em></p>
+<p><em>Transaction history</em></p>
 
 <p>Retrieves all funds that either went in or out of the <strong><a href="https://medium.com/suredbits/lightning-101-what-are-lightning-channels-cfb80f440298">Lightning channel</a></strong> between user and LN-Markets.</p>
 
@@ -4770,7 +4783,8 @@ jwtAuth ( Scopes: deposit ), cookieAuth
             </span><span class="nl">"example"</span><span class="p">:</span><span class="w"> </span><span class="s2">"33f45c13c7ddcae46c6732414552893ca599f9399c62ffc2cfae209e8b17c5c3"</span><span class="w">
           </span><span class="p">},</span><span class="w">
           </span><span class="nl">"success"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="w">
+            </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"example"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
           </span><span class="p">},</span><span class="w">
           </span><span class="nl">"sucess_ts"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
@@ -4971,7 +4985,7 @@ jwtAuth ( Scopes: user ), cookieAuth
 </code></pre></div>
 <p><code>GET /user/jwt</code></p>
 
-<p><em>Lists active JSON Web Tokens.</em></p>
+<p><em>List API Keys</em></p>
 
 <p>Retrieves the list of active JSON Web Token user currently holds.</p>
 
@@ -5148,7 +5162,7 @@ cookieAuth
 </code></pre></div>
 <p><code>DELETE /user/jwt</code></p>
 
-<p><em>Revoked an active JSON Web Toekn.</em></p>
+<p><em>Revoke API Key</em></p>
 
 <p>Using the <code>jti</code> parameter, identifies and revoke usage of a given JWT.</p>
 
@@ -5281,7 +5295,7 @@ cookieAuth
 </code></pre></div>
 <p><code>POST /user/jwt</code></p>
 
-<p><em>Create a new JSON Web Token.</em></p>
+<p><em>Generate API Key</em></p>
 
 <p>Using the given scopes, allow the token bearer to get access to different parts of the public API.</p>
 
@@ -5355,6 +5369,8 @@ cookieAuth
 <td>none</td>
 </tr>
 </tbody></table>
+<h4 id='detailed-descriptions-5'>Detailed descriptions</h4>
+<p><strong>body</strong>: Scopes of authorization that the token will grant to the bearer.</p>
 <h4 id='enumerated-values-4'>Enumerated Values</h4>
 <table><thead>
 <tr>
@@ -5524,6 +5540,8 @@ cookieAuth
 </code></pre></div>
 <p><code>POST /user/withdraw</code></p>
 
+<p><em>Withdraw funds via invoice</em></p>
+
 <p>Move funds from the <strong><a href="https://medium.com/suredbits/lightning-101-what-are-lightning-channels-cfb80f440298">Lightning channel</a></strong> with LN Markets to user wallet by using an invoice directly.</p>
 
 <blockquote>
@@ -5594,6 +5612,8 @@ cookieAuth
 <td>none</td>
 </tr>
 </tbody></table>
+<h4 id='detailed-descriptions-6'>Detailed descriptions</h4>
+<p><strong>body</strong>: Payload that countains all informations to initiate a new withdraw.</p>
 
 <blockquote>
 <p>Example responses</p>
@@ -5768,6 +5788,8 @@ jwtAuth ( Scopes: withdraw ), cookieAuth
 </code></pre></div>
 <p><code>POST /user/withdraw/lnurl</code></p>
 
+<p><em>Withdraw funds via LNURL</em></p>
+
 <p>Create a LNURL Withdraw.</p>
 
 <blockquote>
@@ -5829,6 +5851,8 @@ jwtAuth ( Scopes: withdraw ), cookieAuth
 <td>none</td>
 </tr>
 </tbody></table>
+<h4 id='detailed-descriptions-7'>Detailed descriptions</h4>
+<p><strong>body</strong>: Amount the user wants to withdraw.</p>
 <h4 id='enumerated-values-5'>Enumerated Values</h4>
 <table><thead>
 <tr>
@@ -5962,6 +5986,8 @@ jwtAuth ( Scopes: withdraw ), cookieAuth
 </code></pre></div>
 <p><code>POST /user/logout</code></p>
 
+<p><em>Logout</em></p>
+
 <p>Delete session cookie.</p>
 
 <h3 id="user_logout-responses">Responses</h3>
@@ -6039,7 +6065,7 @@ This operation does not require authentication
 </code></pre></div>
 <p><code>GET /state/api</code></p>
 
-<p><em>module statuses.</em></p>
+<p><em>API</em></p>
 
 <p>Shows available interactions with the platform.</p>
 
@@ -6173,7 +6199,7 @@ This operation does not require authentication
 </code></pre></div>
 <p><code>GET /state/node</code></p>
 
-<p><em>Lightning node status.</em></p>
+<p><em>Lightning node</em></p>
 
 <p>Shows informations about the node.</p>
 
