@@ -49,8 +49,8 @@
         ],
         "security": [],
         "deprecated": false,
-        "summary": "Informations needed to create an account.",
-        "description": "Generates an invoice for future use in the account creation process.",
+        "summary": "Request new credentials",
+        "description": "Generates an invoice for future use in the account creation process.\n",
         "operationId": "Login_getCredentials",
         "responses": {
           "200": {
@@ -82,8 +82,8 @@
         ],
         "security": [],
         "deprecated": false,
-        "summary": "Register a new account.",
-        "description": "Pay the invoice generated through a `/login/credentials` **GET** request and then use `paymentHash` to certify validity and finally create the account.",
+        "summary": "Register new credentials",
+        "description": "Pay the invoice generated through a `/login/credentials` **GET** request and then\nuse `paymentHash` to certify validity and finally create the account.\n",
         "operationId": "Login_registerCredentials",
         "requestBody": {
           "required": true,
@@ -160,8 +160,8 @@
         ],
         "security": [],
         "deprecated": false,
-        "summary": "Log into an existing account.",
-        "description": "Use existing credentials to log into an account.",
+        "summary": "Login via credentials",
+        "description": "Use existing credentials to log into an account.\n",
         "operationId": "Login_loginCredentials",
         "requestBody": {
           "required": true,
@@ -234,8 +234,8 @@
         ],
         "security": [],
         "deprecated": false,
-        "summary": "First request for LNURL where the wallet send the public key with the k1 and signature.",
-        "description": "Verify the public key with the signature and the k1 to create a account or connect into a existing account.\nThe connected state will be push over websockets\n",
+        "summary": "Login via LNURL",
+        "description": "Verify the public key with the signature and the k1 to create a account or connect into a existing account.\nThe connected state will be push over websockets.\n",
         "operationId": "LNURL_authentificate",
         "parameters": [
           {
@@ -320,7 +320,7 @@
         ],
         "security": [],
         "deprecated": false,
-        "summary": "LNURL Auth String",
+        "summary": "Authentification string",
         "description": "LNURL string used to create an account or connect to a existing account.\nThe user wallet will sign a message using the provided k1 inside the LNURL.\n",
         "operationId": "LNURL_authCreate",
         "responses": {
@@ -350,7 +350,7 @@
         ],
         "security": [],
         "deprecated": false,
-        "summary": "Third LNURL withdraw request.",
+        "summary": "Withdraw",
         "description": "Use LNURL to withdraw from the user balance.",
         "operationId": "LNURL_Withdraw",
         "parameters": [
@@ -396,7 +396,7 @@
         ],
         "security": [],
         "deprecated": false,
-        "summary": "Second LNURL withdraw request.",
+        "summary": "Invoice to withdraw",
         "description": "Ask the Lightning wallet to create an invoice with amount and description.",
         "operationId": "LNURL_WithdrawRequest",
         "parameters": [
@@ -484,7 +484,8 @@
         ],
         "security": [],
         "deprecated": false,
-        "description": "Use the browser extension [Joule](https://lightningjoule.com/) to authenticate user.",
+        "summary": "Login via Joule",
+        "description": "Use the browser extension [Joule](https://lightningjoule.com/) to authenticate user.\n",
         "operationId": "Login_loginJoule",
         "requestBody": {
           "required": true,
@@ -518,7 +519,7 @@
         },
         "responses": {
           "200": {
-            "description": "Sucessfuly logged user.",
+            "description": "Sucessfuly logged user.\n",
             "content": {
               "application/json": {
                 "schema": {
@@ -574,8 +575,8 @@
           }
         ],
         "deprecated": false,
-        "summary": "Positions history. (Rework API Response - Object with Array of Objects)",
-        "description": "Retrieves either opened, closed or all positions.",
+        "summary": "Positions history",
+        "description": "Retrieves either opened, closed or all positions.\n",
         "operationId": "Position_getPositionList",
         "parameters": [
           {
@@ -611,7 +612,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Positions history sucessfully fetched.",
+            "description": "Positions history sucessfully fetched.\n",
             "content": {
               "application/json": {
                 "schema": {
@@ -794,11 +795,11 @@
           }
         ],
         "deprecated": false,
-        "summary": "Update position parameters.",
-        "description": "Allows user to modify `stoploss` and `takeprofit` parameters of an existing position.",
+        "summary": "Update a position",
+        "description": "Allows user to modify `stoploss` and `takeprofit` parameters of an existing position.\n",
         "operationId": "Position_updatePosition",
         "requestBody": {
-          "description": "Payload with everything needed to update a position accordingly.\n\n**Pay attention : `stoploss` and `takeprofit` are mutually exclusives. This means you cannot send a request containing the two parameters at once.**",
+          "description": "Payload with everything needed to update a position accordingly.\n\n**Pay attention : `stoploss` and `takeprofit` are mutually exclusives.\nThis means you cannot send a request containing the two parameters at once.**\n",
           "required": true,
           "content": {
             "application/json": {
@@ -855,7 +856,7 @@
         },
         "responses": {
           "200": {
-            "description": "Says whether or not the position was updated.",
+            "description": "Says whether or not the position was updated.\n",
             "content": {
               "application/json": {
                 "schema": {
@@ -894,10 +895,10 @@
         ],
         "deprecated": false,
         "summary": "New position",
-        "description": "Send the order form parameters to add a new position in database.",
+        "description": "Send the order form parameters to add a new position in database.\n",
         "operationId": "Position_createPosition",
         "requestBody": {
-          "description": "Payload with all the information needed to setup a new position.\nif `side=\"l\"`, the property `price` must be included in the request to know when the position should be filled.\n",
+          "description": "Payload with all the information needed to setup a new position.\n\n**If `type=\"l\"`, the property `price` must be included in the request to know when the position should be filled.**\n",
           "content": {
             "application/json": {
               "schema": {
@@ -971,7 +972,7 @@
         },
         "responses": {
           "200": {
-            "description": "Position sucessfully created.",
+            "description": "Position sucessfully created.\n",
             "content": {
               "application/json": {
                 "schema": {
@@ -1146,8 +1147,8 @@
           }
         ],
         "deprecated": false,
-        "summary": "Close a position.",
-        "description": "Ends a contract and update user balance according to the **[P&L](https://investinganswers.com/dictionary/p/profit-loss-pl-statement)**",
+        "summary": "Close a position",
+        "description": "Ends a contract and update user balance according to the **[P&L](https://investinganswers.com/dictionary/p/profit-loss-pl-statement)**\n",
         "operationId": "Position_closePosition",
         "parameters": [
           {
@@ -1163,7 +1164,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Sucessfuly closed position.",
+            "description": "Sucessfuly closed position.\n",
             "content": {
               "application/json": {
                 "schema": {
@@ -1340,7 +1341,8 @@
           }
         ],
         "deprecated": false,
-        "description": "Cancel the position linked to the given `pid`.**Only works on positions that are not currently filled**.",
+        "summary": "Cancel a position",
+        "description": "Cancel the position linked to the given `pid`.**Only works on positions that are not currently filled**.\n",
         "operationId": "Position_cancelPosition",
         "requestBody": {
           "description": "Payload containing the position id that will be cancelled.",
@@ -1365,7 +1367,7 @@
         },
         "responses": {
           "200": {
-            "description": "Successfully cancelled the given position."
+            "description": "Successfully cancelled the given position.\n"
           },
           "400": {
             "description": "The request query and / or body does not fit the schema requirements. It can also be raised by parameters leading to unexpected behaviour / results."
@@ -1383,12 +1385,12 @@
         ],
         "security": [],
         "deprecated": false,
-        "summary": "module statuses.",
-        "description": "Shows available interactions with the platform.",
+        "summary": "API",
+        "description": "Shows available interactions with the platform.\n",
         "operationId": "State_apiState",
         "responses": {
           "200": {
-            "description": "Services are running (not necessarily available).",
+            "description": "Services are running (not necessarily available).\n",
             "content": {
               "application/json": {
                 "schema": {
@@ -1421,12 +1423,12 @@
         ],
         "security": [],
         "deprecated": false,
-        "summary": "Lightning node status.",
-        "description": "Shows informations about the node.",
+        "summary": "Lightning node",
+        "description": "Shows informations about the node.\n",
         "operationId": "State_nodeState",
         "responses": {
           "200": {
-            "description": "The Lightning node is online.",
+            "description": "The Lightning node is online.\n",
             "content": {
               "application/json": {
                 "schema": {
@@ -1468,12 +1470,12 @@
           }
         ],
         "deprecated": false,
-        "summary": "Retrieves user informations.",
-        "description": "Fetches UID, username, account type and current balance.",
+        "summary": "User informations",
+        "description": "Fetches UID, username, account type and current balance.\n",
         "operationId": "User_getUser",
         "responses": {
           "200": {
-            "description": "User found and informations are fetched.",
+            "description": "User found and informations are fetched.\n",
             "content": {
               "application/json": {
                 "schema": {
@@ -1520,11 +1522,11 @@
           }
         ],
         "deprecated": false,
-        "summary": "Update user informations.",
-        "description": "Update the current password to the requested one.",
+        "summary": "Update password",
+        "description": "Update the current password to the requested one.\n",
         "operationId": "User_updateUser",
         "requestBody": {
-          "description": "Payload containing user credentials.",
+          "description": "Payload containing user credentials.\n",
           "required": true,
           "content": {
             "application/json": {
@@ -1558,7 +1560,7 @@
         },
         "responses": {
           "200": {
-            "description": "Password successfuly."
+            "description": "Password successfuly updated.\n"
           },
           "400": {
             "description": "The request query and / or body does not fit the schema requirements. It can also be raised by parameters leading to unexpected behaviour / results."
@@ -1585,10 +1587,11 @@
           }
         ],
         "deprecated": false,
-        "description": "Move funds from user wallet to the **[Lightning channel](https://medium.com/suredbits/lightning-101-what-are-lightning-channels-cfb80f440298)** with LN Markets.",
+        "summary": "Deposit funds",
+        "description": "Move funds from user wallet to the **[Lightning channel](https://medium.com/suredbits/lightning-101-what-are-lightning-channels-cfb80f440298)** with LN Markets.\n",
         "operationId": "User_deposit",
         "requestBody": {
-          "description": "Payload that contains all informations to initialize a new deposit.",
+          "description": "Payload that contains all informations to initialize a new deposit.\n",
           "required": true,
           "content": {
             "application/json": {
@@ -1617,7 +1620,7 @@
         },
         "responses": {
           "200": {
-            "description": "New deposit entry in database waiting for payment. Using `paymentRequest` afterwards, user will confirm the deposit and funds will be added to his account.",
+            "description": "New deposit entry in database waiting for payment. Using `paymentRequest` afterwards, user will confirm the deposit and funds will be added to his account.\n",
             "content": {
               "application/json": {
                 "schema": {
@@ -1661,8 +1664,8 @@
           }
         ],
         "deprecated": false,
-        "summary": "(Rework API Response - Object with Array of Objects)",
-        "description": "Retrieves all funds that either went in or out of the **[Lightning channel](https://medium.com/suredbits/lightning-101-what-are-lightning-channels-cfb80f440298)** between user and LN-Markets.",
+        "summary": "Transaction history",
+        "description": "Retrieves all funds that either went in or out of the **[Lightning channel](https://medium.com/suredbits/lightning-101-what-are-lightning-channels-cfb80f440298)** between user and LN-Markets.\n",
         "operationId": "User_getHistory",
         "parameters": [
           {
@@ -1676,13 +1679,17 @@
               "enum": [
                 "withdraw",
                 "deposit"
+              ],
+              "example": [
+                "withdraw",
+                "deposit"
               ]
             }
           }
         ],
         "responses": {
           "200": {
-            "description": "History sucessfully pulled.",
+            "description": "History sucessfully pulled.\n",
             "content": {
               "application/json": {
                 "schema": {
@@ -1731,7 +1738,8 @@
                             "example": "33f45c13c7ddcae46c6732414552893ca599f9399c62ffc2cfae209e8b17c5c3"
                           },
                           "success": {
-                            "type": "boolean"
+                            "type": "boolean",
+                            "example": false
                           },
                           "sucess_ts": {
                             "type": "string",
@@ -1771,12 +1779,12 @@
           }
         ],
         "deprecated": false,
-        "summary": "Lists active JSON Web Tokens.",
-        "description": "Retrieves the list of active JSON Web Token user currently holds.",
+        "summary": "List API Keys",
+        "description": "Retrieves the list of active JSON Web Token user currently holds.\n",
         "operationId": "User_GetJWTList",
         "responses": {
           "200": {
-            "description": "Token list retrieved.",
+            "description": "Token list retrieved.\n",
             "content": {
               "application/json": {
                 "schema": {
@@ -1841,8 +1849,8 @@
           }
         ],
         "deprecated": false,
-        "summary": "Revoked an active JSON Web Toekn.",
-        "description": "Using the `jti` parameter, identifies and revoke usage of a given JWT.",
+        "summary": "Revoke API Key",
+        "description": "Using the `jti` parameter, identifies and revoke usage of a given JWT.\n",
         "operationId": "User_RevokeJWT",
         "parameters": [
           {
@@ -1857,7 +1865,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Token successfuly revoked."
+            "description": "Token successfuly revoked.\n"
           },
           "400": {
             "description": "The request query and / or body does not fit the schema requirements. It can also be raised by parameters leading to unexpected behaviour / results."
@@ -1877,11 +1885,11 @@
           }
         ],
         "deprecated": false,
-        "summary": "Create a new JSON Web Token.",
-        "description": "Using the given scopes, allow the token bearer to get access to different parts of the public API.",
+        "summary": "Generate API Key",
+        "description": "Using the given scopes, allow the token bearer to get access to different parts of the public API.\n",
         "operationId": "User_CreateJWT",
         "requestBody": {
-          "description": "Scopes of authorization that the token will grant to the bearer.",
+          "description": "Scopes of authorization that the token will grant to the bearer.\n",
           "required": true,
           "content": {
             "application/json": {
@@ -1923,7 +1931,7 @@
         },
         "responses": {
           "200": {
-            "description": "Token successfuly created, its Base64URL encoded signature is returned for future use.",
+            "description": "Token successfuly created, its Base64URL encoded signature is returned for future use.\n",
             "content": {
               "application/json": {
                 "schema": {
@@ -1962,10 +1970,11 @@
           }
         ],
         "deprecated": false,
-        "description": "Move funds from the **[Lightning channel](https://medium.com/suredbits/lightning-101-what-are-lightning-channels-cfb80f440298)** with LN Markets to user wallet by using an invoice directly.",
+        "summary": "Withdraw funds via invoice",
+        "description": "Move funds from the **[Lightning channel](https://medium.com/suredbits/lightning-101-what-are-lightning-channels-cfb80f440298)** with LN Markets to user wallet by using an invoice directly.\n",
         "operationId": "User_withdraw",
         "requestBody": {
-          "description": "Payload that countains all informations to initiate a new withdraw.",
+          "description": "Payload that countains all informations to initiate a new withdraw.\n",
           "required": true,
           "content": {
             "application/json": {
@@ -1998,7 +2007,7 @@
         },
         "responses": {
           "200": {
-            "description": "Funds are removed from user account and added to user wallet.",
+            "description": "Funds are removed from user account and added to user wallet.\n",
             "content": {
               "application/json": {
                 "schema": {
@@ -2050,10 +2059,11 @@
           }
         ],
         "deprecated": false,
-        "description": "Create a LNURL Withdraw.",
+        "summary": "Withdraw funds via LNURL",
+        "description": "Create a LNURL Withdraw.\n",
         "operationId": "User_withdrawLnurl",
         "requestBody": {
-          "description": "Amount the user wants to withdraw.",
+          "description": "Amount the user wants to withdraw.\n",
           "required": true,
           "content": {
             "application/json": {
@@ -2084,7 +2094,7 @@
         },
         "responses": {
           "200": {
-            "description": "Bech32 encoded string",
+            "description": "Bech32 encoded string\n",
             "content": {
               "application/json": {
                 "schema": {
@@ -2115,11 +2125,12 @@
         ],
         "security": [],
         "deprecated": false,
-        "description": "Delete session cookie.",
+        "summary": "Logout",
+        "description": "Delete session cookie.\n",
         "operationId": "User_logout",
         "responses": {
           "200": {
-            "description": "Sucessfully logged out."
+            "description": "Sucessfully logged out.\n"
           }
         }
       }
