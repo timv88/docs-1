@@ -2103,12 +2103,14 @@ This operation does not require authentication
           </span><span class="nl">"closed_ts"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"format"</span><span class="p">:</span><span class="w"> </span><span class="s2">"date-time"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"nullable"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+            </span><span class="nl">"nullable"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"example"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
           </span><span class="p">},</span><span class="w">
           </span><span class="nl">"creation_ts"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"format"</span><span class="p">:</span><span class="w"> </span><span class="s2">"date-time"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"nullable"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+            </span><span class="nl">"nullable"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"example"</span><span class="p">:</span><span class="w"> </span><span class="s2">"020-09-15T10:50:40.332Z"</span><span class="w">
           </span><span class="p">},</span><span class="w">
           </span><span class="nl">"exit_price"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
@@ -2147,7 +2149,8 @@ This operation does not require authentication
           </span><span class="nl">"market_filled_ts"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"format"</span><span class="p">:</span><span class="w"> </span><span class="s2">"date-time"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"nullable"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+            </span><span class="nl">"nullable"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"example"</span><span class="p">:</span><span class="w"> </span><span class="s2">"020-09-15T10:50:40.332Z"</span><span class="w">
           </span><span class="p">},</span><span class="w">
           </span><span class="nl">"market_wi"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
@@ -2513,7 +2516,7 @@ jwtAuth ( Scopes: positions ), cookieAuth
 
 <span class="n">conn</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="n">client</span><span class="p">.</span><span class="n">HTTPSConnection</span><span class="p">(</span><span class="s">"api.lnmarkets.com"</span><span class="p">)</span>
 
-<span class="n">payload</span> <span class="o">=</span> <span class="s">"{</span><span class="se">\"</span><span class="s">oneOf</span><span class="se">\"</span><span class="s">:[{</span><span class="se">\"</span><span class="s">type</span><span class="se">\"</span><span class="s">:</span><span class="se">\"</span><span class="s">object</span><span class="se">\"</span><span class="s">,</span><span class="se">\"</span><span class="s">required</span><span class="se">\"</span><span class="s">:[</span><span class="se">\"</span><span class="s">pid</span><span class="se">\"</span><span class="s">,</span><span class="se">\"</span><span class="s">takeprofit</span><span class="se">\"</span><span class="s">],</span><span class="se">\"</span><span class="s">properties</span><span class="se">\"</span><span class="s">:{</span><span class="se">\"</span><span class="s">pid</span><span class="se">\"</span><span class="s">:{</span><span class="se">\"</span><span class="s">type</span><span class="se">\"</span><span class="s">:</span><span class="se">\"</span><span class="s">string</span><span class="se">\"</span><span class="s">,</span><span class="se">\"</span><span class="s">pattern</span><span class="se">\"</span><span class="s">:</span><span class="se">\"</span><span class="s">^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$</span><span class="se">\"</span><span class="s">},</span><span class="se">\"</span><span class="s">takeprofit</span><span class="se">\"</span><span class="s">:{</span><span class="se">\"</span><span class="s">type</span><span class="se">\"</span><span class="s">:</span><span class="se">\"</span><span class="s">number</span><span class="se">\"</span><span class="s">,</span><span class="se">\"</span><span class="s">format</span><span class="se">\"</span><span class="s">:</span><span class="se">\"</span><span class="s">double</span><span class="se">\"</span><span class="s">,</span><span class="se">\"</span><span class="s">minimum</span><span class="se">\"</span><span class="s">:0,</span><span class="se">\"</span><span class="s">multipleOf</span><span class="se">\"</span><span class="s">:0.1}},</span><span class="se">\"</span><span class="s">additionalProperties</span><span class="se">\"</span><span class="s">:false},{</span><span class="se">\"</span><span class="s">type</span><span class="se">\"</span><span class="s">:</span><span class="se">\"</span><span class="s">object</span><span class="se">\"</span><span class="s">,</span><span class="se">\"</span><span class="s">required</span><span class="se">\"</span><span class="s">:[</span><span class="se">\"</span><span class="s">pid</span><span class="se">\"</span><span class="s">,</span><span class="se">\"</span><span class="s">stoploss</span><span class="se">\"</span><span class="s">],</span><span class="se">\"</span><span class="s">properties</span><span class="se">\"</span><span class="s">:{</span><span class="se">\"</span><span class="s">pid</span><span class="se">\"</span><span class="s">:{</span><span class="se">\"</span><span class="s">type</span><span class="se">\"</span><span class="s">:</span><span class="se">\"</span><span class="s">string</span><span class="se">\"</span><span class="s">,</span><span class="se">\"</span><span class="s">pattern</span><span class="se">\"</span><span class="s">:</span><span class="se">\"</span><span class="s">^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$</span><span class="se">\"</span><span class="s">},</span><span class="se">\"</span><span class="s">stoploss</span><span class="se">\"</span><span class="s">:{</span><span class="se">\"</span><span class="s">type</span><span class="se">\"</span><span class="s">:</span><span class="se">\"</span><span class="s">number</span><span class="se">\"</span><span class="s">,</span><span class="se">\"</span><span class="s">format</span><span class="se">\"</span><span class="s">:</span><span class="se">\"</span><span class="s">double</span><span class="se">\"</span><span class="s">,</span><span class="se">\"</span><span class="s">minimum</span><span class="se">\"</span><span class="s">:0,</span><span class="se">\"</span><span class="s">multipleOf</span><span class="se">\"</span><span class="s">:0.1}},</span><span class="se">\"</span><span class="s">additionalProperties</span><span class="se">\"</span><span class="s">:false}]}"</span>
+<span class="n">payload</span> <span class="o">=</span> <span class="s">"{</span><span class="se">\"</span><span class="s">oneOf</span><span class="se">\"</span><span class="s">:[{</span><span class="se">\"</span><span class="s">type</span><span class="se">\"</span><span class="s">:</span><span class="se">\"</span><span class="s">object</span><span class="se">\"</span><span class="s">,</span><span class="se">\"</span><span class="s">required</span><span class="se">\"</span><span class="s">:[</span><span class="se">\"</span><span class="s">pid</span><span class="se">\"</span><span class="s">,</span><span class="se">\"</span><span class="s">takeprofit</span><span class="se">\"</span><span class="s">],</span><span class="se">\"</span><span class="s">properties</span><span class="se">\"</span><span class="s">:{</span><span class="se">\"</span><span class="s">pid</span><span class="se">\"</span><span class="s">:{</span><span class="se">\"</span><span class="s">type</span><span class="se">\"</span><span class="s">:</span><span class="se">\"</span><span class="s">string</span><span class="se">\"</span><span class="s">,</span><span class="se">\"</span><span class="s">pattern</span><span class="se">\"</span><span class="s">:</span><span class="se">\"</span><span class="s">^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$</span><span class="se">\"</span><span class="s">,</span><span class="se">\"</span><span class="s">example</span><span class="se">\"</span><span class="s">:</span><span class="se">\"</span><span class="s">b87eef8a-52ab-2fea-1adc-c41fba870b0f</span><span class="se">\"</span><span class="s">},</span><span class="se">\"</span><span class="s">takeprofit</span><span class="se">\"</span><span class="s">:{</span><span class="se">\"</span><span class="s">type</span><span class="se">\"</span><span class="s">:</span><span class="se">\"</span><span class="s">number</span><span class="se">\"</span><span class="s">,</span><span class="se">\"</span><span class="s">format</span><span class="se">\"</span><span class="s">:</span><span class="se">\"</span><span class="s">double</span><span class="se">\"</span><span class="s">,</span><span class="se">\"</span><span class="s">minimum</span><span class="se">\"</span><span class="s">:0,</span><span class="se">\"</span><span class="s">multipleOf</span><span class="se">\"</span><span class="s">:0.1,</span><span class="se">\"</span><span class="s">example</span><span class="se">\"</span><span class="s">:9800.5}},</span><span class="se">\"</span><span class="s">additionalProperties</span><span class="se">\"</span><span class="s">:false},{</span><span class="se">\"</span><span class="s">type</span><span class="se">\"</span><span class="s">:</span><span class="se">\"</span><span class="s">object</span><span class="se">\"</span><span class="s">,</span><span class="se">\"</span><span class="s">required</span><span class="se">\"</span><span class="s">:[</span><span class="se">\"</span><span class="s">pid</span><span class="se">\"</span><span class="s">,</span><span class="se">\"</span><span class="s">stoploss</span><span class="se">\"</span><span class="s">],</span><span class="se">\"</span><span class="s">properties</span><span class="se">\"</span><span class="s">:{</span><span class="se">\"</span><span class="s">pid</span><span class="se">\"</span><span class="s">:{</span><span class="se">\"</span><span class="s">type</span><span class="se">\"</span><span class="s">:</span><span class="se">\"</span><span class="s">string</span><span class="se">\"</span><span class="s">,</span><span class="se">\"</span><span class="s">pattern</span><span class="se">\"</span><span class="s">:</span><span class="se">\"</span><span class="s">^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$</span><span class="se">\"</span><span class="s">,</span><span class="se">\"</span><span class="s">example</span><span class="se">\"</span><span class="s">:</span><span class="se">\"</span><span class="s">b87eef8a-52ab-2fea-1adc-c41fba870b0f</span><span class="se">\"</span><span class="s">},</span><span class="se">\"</span><span class="s">stoploss</span><span class="se">\"</span><span class="s">:{</span><span class="se">\"</span><span class="s">type</span><span class="se">\"</span><span class="s">:</span><span class="se">\"</span><span class="s">number</span><span class="se">\"</span><span class="s">,</span><span class="se">\"</span><span class="s">format</span><span class="se">\"</span><span class="s">:</span><span class="se">\"</span><span class="s">double</span><span class="se">\"</span><span class="s">,</span><span class="se">\"</span><span class="s">minimum</span><span class="se">\"</span><span class="s">:0,</span><span class="se">\"</span><span class="s">multipleOf</span><span class="se">\"</span><span class="s">:0.1,</span><span class="se">\"</span><span class="s">example</span><span class="se">\"</span><span class="s">:6700}},</span><span class="se">\"</span><span class="s">additionalProperties</span><span class="se">\"</span><span class="s">:false}]}"</span>
 
 <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s">'content-type'</span><span class="p">:</span> <span class="s">"application/json"</span><span class="p">,</span>
@@ -2562,9 +2565,10 @@ jwtAuth ( Scopes: positions ), cookieAuth
       <span class="na">properties</span><span class="p">:</span> <span class="p">{</span>
         <span class="na">pid</span><span class="p">:</span> <span class="p">{</span>
           <span class="na">type</span><span class="p">:</span> <span class="dl">'</span><span class="s1">string</span><span class="dl">'</span><span class="p">,</span>
-          <span class="na">pattern</span><span class="p">:</span> <span class="dl">'</span><span class="s1">^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$</span><span class="dl">'</span>
+          <span class="na">pattern</span><span class="p">:</span> <span class="dl">'</span><span class="s1">^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$</span><span class="dl">'</span><span class="p">,</span>
+          <span class="na">example</span><span class="p">:</span> <span class="dl">'</span><span class="s1">b87eef8a-52ab-2fea-1adc-c41fba870b0f</span><span class="dl">'</span>
         <span class="p">},</span>
-        <span class="na">takeprofit</span><span class="p">:</span> <span class="p">{</span><span class="na">type</span><span class="p">:</span> <span class="dl">'</span><span class="s1">number</span><span class="dl">'</span><span class="p">,</span> <span class="na">format</span><span class="p">:</span> <span class="dl">'</span><span class="s1">double</span><span class="dl">'</span><span class="p">,</span> <span class="na">minimum</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="na">multipleOf</span><span class="p">:</span> <span class="mf">0.1</span><span class="p">}</span>
+        <span class="na">takeprofit</span><span class="p">:</span> <span class="p">{</span><span class="na">type</span><span class="p">:</span> <span class="dl">'</span><span class="s1">number</span><span class="dl">'</span><span class="p">,</span> <span class="na">format</span><span class="p">:</span> <span class="dl">'</span><span class="s1">double</span><span class="dl">'</span><span class="p">,</span> <span class="na">minimum</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="na">multipleOf</span><span class="p">:</span> <span class="mf">0.1</span><span class="p">,</span> <span class="na">example</span><span class="p">:</span> <span class="mf">9800.5</span><span class="p">}</span>
       <span class="p">},</span>
       <span class="na">additionalProperties</span><span class="p">:</span> <span class="kc">false</span>
     <span class="p">},</span>
@@ -2574,9 +2578,10 @@ jwtAuth ( Scopes: positions ), cookieAuth
       <span class="na">properties</span><span class="p">:</span> <span class="p">{</span>
         <span class="na">pid</span><span class="p">:</span> <span class="p">{</span>
           <span class="na">type</span><span class="p">:</span> <span class="dl">'</span><span class="s1">string</span><span class="dl">'</span><span class="p">,</span>
-          <span class="na">pattern</span><span class="p">:</span> <span class="dl">'</span><span class="s1">^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$</span><span class="dl">'</span>
+          <span class="na">pattern</span><span class="p">:</span> <span class="dl">'</span><span class="s1">^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$</span><span class="dl">'</span><span class="p">,</span>
+          <span class="na">example</span><span class="p">:</span> <span class="dl">'</span><span class="s1">b87eef8a-52ab-2fea-1adc-c41fba870b0f</span><span class="dl">'</span>
         <span class="p">},</span>
-        <span class="na">stoploss</span><span class="p">:</span> <span class="p">{</span><span class="na">type</span><span class="p">:</span> <span class="dl">'</span><span class="s1">number</span><span class="dl">'</span><span class="p">,</span> <span class="na">format</span><span class="p">:</span> <span class="dl">'</span><span class="s1">double</span><span class="dl">'</span><span class="p">,</span> <span class="na">minimum</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="na">multipleOf</span><span class="p">:</span> <span class="mf">0.1</span><span class="p">}</span>
+        <span class="na">stoploss</span><span class="p">:</span> <span class="p">{</span><span class="na">type</span><span class="p">:</span> <span class="dl">'</span><span class="s1">number</span><span class="dl">'</span><span class="p">,</span> <span class="na">format</span><span class="p">:</span> <span class="dl">'</span><span class="s1">double</span><span class="dl">'</span><span class="p">,</span> <span class="na">minimum</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="na">multipleOf</span><span class="p">:</span> <span class="mf">0.1</span><span class="p">,</span> <span class="na">example</span><span class="p">:</span> <span class="mi">6700</span><span class="p">}</span>
       <span class="p">},</span>
       <span class="na">additionalProperties</span><span class="p">:</span> <span class="kc">false</span>
     <span class="p">}</span>
@@ -2588,7 +2593,7 @@ jwtAuth ( Scopes: positions ), cookieAuth
   <span class="nt">--header</span> <span class="s1">'accept: application/json'</span> <span class="se">\</span>
   <span class="nt">--header</span> <span class="s1">'authorization: Bearer {access-token}'</span> <span class="se">\</span>
   <span class="nt">--header</span> <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
-  <span class="nt">--data</span> <span class="s1">'{"oneOf":[{"type":"object","required":["pid","takeprofit"],"properties":{"pid":{"type":"string","pattern":"^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$"},"takeprofit":{"type":"number","format":"double","minimum":0,"multipleOf":0.1}},"additionalProperties":false},{"type":"object","required":["pid","stoploss"],"properties":{"pid":{"type":"string","pattern":"^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$"},"stoploss":{"type":"number","format":"double","minimum":0,"multipleOf":0.1}},"additionalProperties":false}]}'</span>
+  <span class="nt">--data</span> <span class="s1">'{"oneOf":[{"type":"object","required":["pid","takeprofit"],"properties":{"pid":{"type":"string","pattern":"^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$","example":"b87eef8a-52ab-2fea-1adc-c41fba870b0f"},"takeprofit":{"type":"number","format":"double","minimum":0,"multipleOf":0.1,"example":9800.5}},"additionalProperties":false},{"type":"object","required":["pid","stoploss"],"properties":{"pid":{"type":"string","pattern":"^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$","example":"b87eef8a-52ab-2fea-1adc-c41fba870b0f"},"stoploss":{"type":"number","format":"double","minimum":0,"multipleOf":0.1,"example":6700}},"additionalProperties":false}]}'</span>
 </code></pre></div>
 <p><code>PUT /positions</code></p>
 
@@ -2610,13 +2615,15 @@ jwtAuth ( Scopes: positions ), cookieAuth
       </span><span class="nl">"properties"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nl">"pid"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
           </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-          </span><span class="nl">"pattern"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$"</span><span class="w">
+          </span><span class="nl">"pattern"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"example"</span><span class="p">:</span><span class="w"> </span><span class="s2">"b87eef8a-52ab-2fea-1adc-c41fba870b0f"</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="nl">"takeprofit"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
           </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"number"</span><span class="p">,</span><span class="w">
           </span><span class="nl">"format"</span><span class="p">:</span><span class="w"> </span><span class="s2">"double"</span><span class="p">,</span><span class="w">
           </span><span class="nl">"minimum"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-          </span><span class="nl">"multipleOf"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.1</span><span class="w">
+          </span><span class="nl">"multipleOf"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.1</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"example"</span><span class="p">:</span><span class="w"> </span><span class="mf">9800.5</span><span class="w">
         </span><span class="p">}</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="nl">"additionalProperties"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
@@ -2630,13 +2637,15 @@ jwtAuth ( Scopes: positions ), cookieAuth
       </span><span class="nl">"properties"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nl">"pid"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
           </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-          </span><span class="nl">"pattern"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$"</span><span class="w">
+          </span><span class="nl">"pattern"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"example"</span><span class="p">:</span><span class="w"> </span><span class="s2">"b87eef8a-52ab-2fea-1adc-c41fba870b0f"</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="nl">"stoploss"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
           </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"number"</span><span class="p">,</span><span class="w">
           </span><span class="nl">"format"</span><span class="p">:</span><span class="w"> </span><span class="s2">"double"</span><span class="p">,</span><span class="w">
           </span><span class="nl">"minimum"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-          </span><span class="nl">"multipleOf"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.1</span><span class="w">
+          </span><span class="nl">"multipleOf"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.1</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"example"</span><span class="p">:</span><span class="w"> </span><span class="mi">6700</span><span class="w">
         </span><span class="p">}</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="nl">"additionalProperties"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
@@ -2677,7 +2686,8 @@ jwtAuth ( Scopes: positions ), cookieAuth
   </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"object"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"properties"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nl">"success"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="w">
+      </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"example"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -2748,7 +2758,7 @@ jwtAuth ( Scopes: positions ), cookieAuth
 
 <span class="n">conn</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="n">client</span><span class="p">.</span><span class="n">HTTPSConnection</span><span class="p">(</span><span class="s">"api.lnmarkets.com"</span><span class="p">)</span>
 
-<span class="n">payload</span> <span class="o">=</span> <span class="s">"{</span><span class="se">\"</span><span class="s">type</span><span class="se">\"</span><span class="s">:</span><span class="se">\"</span><span class="s">m</span><span class="se">\"</span><span class="s">,</span><span class="se">\"</span><span class="s">side</span><span class="se">\"</span><span class="s">:</span><span class="se">\"</span><span class="s">b</span><span class="se">\"</span><span class="s">,</span><span class="se">\"</span><span class="s">margin</span><span class="se">\"</span><span class="s">:100000,</span><span class="se">\"</span><span class="s">leverage</span><span class="se">\"</span><span class="s">:25,</span><span class="se">\"</span><span class="s">quantity</span><span class="se">\"</span><span class="s">:500}"</span>
+<span class="n">payload</span> <span class="o">=</span> <span class="s">"{</span><span class="se">\"</span><span class="s">type</span><span class="se">\"</span><span class="s">:</span><span class="se">\"</span><span class="s">object</span><span class="se">\"</span><span class="s">,</span><span class="se">\"</span><span class="s">required</span><span class="se">\"</span><span class="s">:[</span><span class="se">\"</span><span class="s">side</span><span class="se">\"</span><span class="s">,</span><span class="se">\"</span><span class="s">type</span><span class="se">\"</span><span class="s">,</span><span class="se">\"</span><span class="s">margin</span><span class="se">\"</span><span class="s">],</span><span class="se">\"</span><span class="s">properties</span><span class="se">\"</span><span class="s">:{</span><span class="se">\"</span><span class="s">type</span><span class="se">\"</span><span class="s">:{</span><span class="se">\"</span><span class="s">type</span><span class="se">\"</span><span class="s">:</span><span class="se">\"</span><span class="s">string</span><span class="se">\"</span><span class="s">,</span><span class="se">\"</span><span class="s">enum</span><span class="se">\"</span><span class="s">:[</span><span class="se">\"</span><span class="s">l</span><span class="se">\"</span><span class="s">,</span><span class="se">\"</span><span class="s">m</span><span class="se">\"</span><span class="s">],</span><span class="se">\"</span><span class="s">example</span><span class="se">\"</span><span class="s">:</span><span class="se">\"</span><span class="s">m</span><span class="se">\"</span><span class="s">},</span><span class="se">\"</span><span class="s">side</span><span class="se">\"</span><span class="s">:{</span><span class="se">\"</span><span class="s">type</span><span class="se">\"</span><span class="s">:</span><span class="se">\"</span><span class="s">string</span><span class="se">\"</span><span class="s">,</span><span class="se">\"</span><span class="s">enum</span><span class="se">\"</span><span class="s">:[</span><span class="se">\"</span><span class="s">b</span><span class="se">\"</span><span class="s">,</span><span class="se">\"</span><span class="s">s</span><span class="se">\"</span><span class="s">],</span><span class="se">\"</span><span class="s">example</span><span class="se">\"</span><span class="s">:</span><span class="se">\"</span><span class="s">b</span><span class="se">\"</span><span class="s">},</span><span class="se">\"</span><span class="s">margin</span><span class="se">\"</span><span class="s">:{</span><span class="se">\"</span><span class="s">type</span><span class="se">\"</span><span class="s">:</span><span class="se">\"</span><span class="s">integer</span><span class="se">\"</span><span class="s">,</span><span class="se">\"</span><span class="s">format</span><span class="se">\"</span><span class="s">:</span><span class="se">\"</span><span class="s">int32</span><span class="se">\"</span><span class="s">,</span><span class="se">\"</span><span class="s">minimum</span><span class="se">\"</span><span class="s">:1,</span><span class="se">\"</span><span class="s">example</span><span class="se">\"</span><span class="s">:100000},</span><span class="se">\"</span><span class="s">leverage</span><span class="se">\"</span><span class="s">:{</span><span class="se">\"</span><span class="s">type</span><span class="se">\"</span><span class="s">:</span><span class="se">\"</span><span class="s">number</span><span class="se">\"</span><span class="s">,</span><span class="se">\"</span><span class="s">format</span><span class="se">\"</span><span class="s">:</span><span class="se">\"</span><span class="s">double</span><span class="se">\"</span><span class="s">,</span><span class="se">\"</span><span class="s">multipleOf</span><span class="se">\"</span><span class="s">:1e-10,</span><span class="se">\"</span><span class="s">minimum</span><span class="se">\"</span><span class="s">:1,</span><span class="se">\"</span><span class="s">maximum</span><span class="se">\"</span><span class="s">:50,</span><span class="se">\"</span><span class="s">example</span><span class="se">\"</span><span class="s">:25},</span><span class="se">\"</span><span class="s">quantity</span><span class="se">\"</span><span class="s">:{</span><span class="se">\"</span><span class="s">type</span><span class="se">\"</span><span class="s">:</span><span class="se">\"</span><span class="s">integer</span><span class="se">\"</span><span class="s">,</span><span class="se">\"</span><span class="s">minimum</span><span class="se">\"</span><span class="s">:1,</span><span class="se">\"</span><span class="s">example</span><span class="se">\"</span><span class="s">:250},</span><span class="se">\"</span><span class="s">takeprofit</span><span class="se">\"</span><span class="s">:{</span><span class="se">\"</span><span class="s">type</span><span class="se">\"</span><span class="s">:</span><span class="se">\"</span><span class="s">number</span><span class="se">\"</span><span class="s">,</span><span class="se">\"</span><span class="s">format</span><span class="se">\"</span><span class="s">:</span><span class="se">\"</span><span class="s">double</span><span class="se">\"</span><span class="s">,</span><span class="se">\"</span><span class="s">multipleOf</span><span class="se">\"</span><span class="s">:0.1,</span><span class="se">\"</span><span class="s">minimum</span><span class="se">\"</span><span class="s">:1,</span><span class="se">\"</span><span class="s">example</span><span class="se">\"</span><span class="s">:11110},</span><span class="se">\"</span><span class="s">stoploss</span><span class="se">\"</span><span class="s">:{</span><span class="se">\"</span><span class="s">type</span><span class="se">\"</span><span class="s">:</span><span class="se">\"</span><span class="s">number</span><span class="se">\"</span><span class="s">,</span><span class="se">\"</span><span class="s">format</span><span class="se">\"</span><span class="s">:</span><span class="se">\"</span><span class="s">double</span><span class="se">\"</span><span class="s">,</span><span class="se">\"</span><span class="s">multipleOf</span><span class="se">\"</span><span class="s">:0.1,</span><span class="se">\"</span><span class="s">minimum</span><span class="se">\"</span><span class="s">:1,</span><span class="se">\"</span><span class="s">example</span><span class="se">\"</span><span class="s">:6700},</span><span class="se">\"</span><span class="s">price</span><span class="se">\"</span><span class="s">:{</span><span class="se">\"</span><span class="s">type</span><span class="se">\"</span><span class="s">:</span><span class="se">\"</span><span class="s">number</span><span class="se">\"</span><span class="s">,</span><span class="se">\"</span><span class="s">format</span><span class="se">\"</span><span class="s">:</span><span class="se">\"</span><span class="s">double</span><span class="se">\"</span><span class="s">,</span><span class="se">\"</span><span class="s">multipleOf</span><span class="se">\"</span><span class="s">:0.1,</span><span class="se">\"</span><span class="s">minimum</span><span class="se">\"</span><span class="s">:1,</span><span class="se">\"</span><span class="s">example</span><span class="se">\"</span><span class="s">:10010}}}"</span>
 
 <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s">'content-type'</span><span class="p">:</span> <span class="s">"application/json"</span><span class="p">,</span>
@@ -2789,14 +2799,34 @@ jwtAuth ( Scopes: positions ), cookieAuth
   <span class="p">});</span>
 <span class="p">});</span>
 
-<span class="nx">req</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span><span class="na">type</span><span class="p">:</span> <span class="dl">'</span><span class="s1">m</span><span class="dl">'</span><span class="p">,</span> <span class="na">side</span><span class="p">:</span> <span class="dl">'</span><span class="s1">b</span><span class="dl">'</span><span class="p">,</span> <span class="na">margin</span><span class="p">:</span> <span class="mi">100000</span><span class="p">,</span> <span class="na">leverage</span><span class="p">:</span> <span class="mi">25</span><span class="p">,</span> <span class="na">quantity</span><span class="p">:</span> <span class="mi">500</span><span class="p">}));</span>
+<span class="nx">req</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span>
+  <span class="na">type</span><span class="p">:</span> <span class="dl">'</span><span class="s1">object</span><span class="dl">'</span><span class="p">,</span>
+  <span class="na">required</span><span class="p">:</span> <span class="p">[</span><span class="dl">'</span><span class="s1">side</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">type</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">margin</span><span class="dl">'</span><span class="p">],</span>
+  <span class="na">properties</span><span class="p">:</span> <span class="p">{</span>
+    <span class="na">type</span><span class="p">:</span> <span class="p">{</span><span class="na">type</span><span class="p">:</span> <span class="dl">'</span><span class="s1">string</span><span class="dl">'</span><span class="p">,</span> <span class="na">enum</span><span class="p">:</span> <span class="p">[</span><span class="dl">'</span><span class="s1">l</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">m</span><span class="dl">'</span><span class="p">],</span> <span class="na">example</span><span class="p">:</span> <span class="dl">'</span><span class="s1">m</span><span class="dl">'</span><span class="p">},</span>
+    <span class="na">side</span><span class="p">:</span> <span class="p">{</span><span class="na">type</span><span class="p">:</span> <span class="dl">'</span><span class="s1">string</span><span class="dl">'</span><span class="p">,</span> <span class="na">enum</span><span class="p">:</span> <span class="p">[</span><span class="dl">'</span><span class="s1">b</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">s</span><span class="dl">'</span><span class="p">],</span> <span class="na">example</span><span class="p">:</span> <span class="dl">'</span><span class="s1">b</span><span class="dl">'</span><span class="p">},</span>
+    <span class="na">margin</span><span class="p">:</span> <span class="p">{</span><span class="na">type</span><span class="p">:</span> <span class="dl">'</span><span class="s1">integer</span><span class="dl">'</span><span class="p">,</span> <span class="na">format</span><span class="p">:</span> <span class="dl">'</span><span class="s1">int32</span><span class="dl">'</span><span class="p">,</span> <span class="na">minimum</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="na">example</span><span class="p">:</span> <span class="mi">100000</span><span class="p">},</span>
+    <span class="na">leverage</span><span class="p">:</span> <span class="p">{</span>
+      <span class="na">type</span><span class="p">:</span> <span class="dl">'</span><span class="s1">number</span><span class="dl">'</span><span class="p">,</span>
+      <span class="na">format</span><span class="p">:</span> <span class="dl">'</span><span class="s1">double</span><span class="dl">'</span><span class="p">,</span>
+      <span class="na">multipleOf</span><span class="p">:</span> <span class="mi">1</span><span class="nx">e</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span>
+      <span class="na">minimum</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+      <span class="na">maximum</span><span class="p">:</span> <span class="mi">50</span><span class="p">,</span>
+      <span class="na">example</span><span class="p">:</span> <span class="mi">25</span>
+    <span class="p">},</span>
+    <span class="na">quantity</span><span class="p">:</span> <span class="p">{</span><span class="na">type</span><span class="p">:</span> <span class="dl">'</span><span class="s1">integer</span><span class="dl">'</span><span class="p">,</span> <span class="na">minimum</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="na">example</span><span class="p">:</span> <span class="mi">250</span><span class="p">},</span>
+    <span class="na">takeprofit</span><span class="p">:</span> <span class="p">{</span><span class="na">type</span><span class="p">:</span> <span class="dl">'</span><span class="s1">number</span><span class="dl">'</span><span class="p">,</span> <span class="na">format</span><span class="p">:</span> <span class="dl">'</span><span class="s1">double</span><span class="dl">'</span><span class="p">,</span> <span class="na">multipleOf</span><span class="p">:</span> <span class="mf">0.1</span><span class="p">,</span> <span class="na">minimum</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="na">example</span><span class="p">:</span> <span class="mi">11110</span><span class="p">},</span>
+    <span class="na">stoploss</span><span class="p">:</span> <span class="p">{</span><span class="na">type</span><span class="p">:</span> <span class="dl">'</span><span class="s1">number</span><span class="dl">'</span><span class="p">,</span> <span class="na">format</span><span class="p">:</span> <span class="dl">'</span><span class="s1">double</span><span class="dl">'</span><span class="p">,</span> <span class="na">multipleOf</span><span class="p">:</span> <span class="mf">0.1</span><span class="p">,</span> <span class="na">minimum</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="na">example</span><span class="p">:</span> <span class="mi">6700</span><span class="p">},</span>
+    <span class="na">price</span><span class="p">:</span> <span class="p">{</span><span class="na">type</span><span class="p">:</span> <span class="dl">'</span><span class="s1">number</span><span class="dl">'</span><span class="p">,</span> <span class="na">format</span><span class="p">:</span> <span class="dl">'</span><span class="s1">double</span><span class="dl">'</span><span class="p">,</span> <span class="na">multipleOf</span><span class="p">:</span> <span class="mf">0.1</span><span class="p">,</span> <span class="na">minimum</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="na">example</span><span class="p">:</span> <span class="mi">10010</span><span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}));</span>
 <span class="nx">req</span><span class="p">.</span><span class="nx">end</span><span class="p">();</span>
 </code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--request</span> POST <span class="se">\</span>
   <span class="nt">--url</span> https://api.lnmarkets.com/positions <span class="se">\</span>
   <span class="nt">--header</span> <span class="s1">'accept: application/json'</span> <span class="se">\</span>
   <span class="nt">--header</span> <span class="s1">'authorization: Bearer {access-token}'</span> <span class="se">\</span>
   <span class="nt">--header</span> <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
-  <span class="nt">--data</span> <span class="s1">'{"type":"m","side":"b","margin":100000,"leverage":25,"quantity":500}'</span>
+  <span class="nt">--data</span> <span class="s1">'{"type":"object","required":["side","type","margin"],"properties":{"type":{"type":"string","enum":["l","m"],"example":"m"},"side":{"type":"string","enum":["b","s"],"example":"b"},"margin":{"type":"integer","format":"int32","minimum":1,"example":100000},"leverage":{"type":"number","format":"double","multipleOf":1e-10,"minimum":1,"maximum":50,"example":25},"quantity":{"type":"integer","minimum":1,"example":250},"takeprofit":{"type":"number","format":"double","multipleOf":0.1,"minimum":1,"example":11110},"stoploss":{"type":"number","format":"double","multipleOf":0.1,"minimum":1,"example":6700},"price":{"type":"number","format":"double","multipleOf":0.1,"minimum":1,"example":10010}}}'</span>
 </code></pre></div>
 <p><code>POST /positions</code></p>
 
@@ -2808,11 +2838,70 @@ jwtAuth ( Scopes: positions ), cookieAuth
 <p>Body parameter</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"m"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"side"</span><span class="p">:</span><span class="w"> </span><span class="s2">"b"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"margin"</span><span class="p">:</span><span class="w"> </span><span class="mi">100000</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"leverage"</span><span class="p">:</span><span class="w"> </span><span class="mi">25</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">500</span><span class="w">
+  </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"object"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"required"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"side"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"margin"</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nl">"properties"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"enum"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="s2">"l"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"m"</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="nl">"example"</span><span class="p">:</span><span class="w"> </span><span class="s2">"m"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"side"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"enum"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="s2">"b"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"s"</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="nl">"example"</span><span class="p">:</span><span class="w"> </span><span class="s2">"b"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"margin"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"format"</span><span class="p">:</span><span class="w"> </span><span class="s2">"int32"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"minimum"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"example"</span><span class="p">:</span><span class="w"> </span><span class="mi">100000</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"leverage"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"number"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"format"</span><span class="p">:</span><span class="w"> </span><span class="s2">"double"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"multipleOf"</span><span class="p">:</span><span class="w"> </span><span class="mi">1e-10</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"minimum"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"maximum"</span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"example"</span><span class="p">:</span><span class="w"> </span><span class="mi">25</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"minimum"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"example"</span><span class="p">:</span><span class="w"> </span><span class="mi">250</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"takeprofit"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"number"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"format"</span><span class="p">:</span><span class="w"> </span><span class="s2">"double"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"multipleOf"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.1</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"minimum"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"example"</span><span class="p">:</span><span class="w"> </span><span class="mi">11110</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"stoploss"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"number"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"format"</span><span class="p">:</span><span class="w"> </span><span class="s2">"double"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"multipleOf"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.1</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"minimum"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"example"</span><span class="p">:</span><span class="w"> </span><span class="mi">6700</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"price"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"number"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"format"</span><span class="p">:</span><span class="w"> </span><span class="s2">"double"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"multipleOf"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.1</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"minimum"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"example"</span><span class="p">:</span><span class="w"> </span><span class="mi">10010</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <h3 id="position_createposition-parameters">Parameters</h3>
@@ -2891,7 +2980,7 @@ jwtAuth ( Scopes: positions ), cookieAuth
 </tr>
 </tbody></table>
 <h4 id='detailed-descriptions-2'>Detailed descriptions</h4>
-<p><strong>body</strong>: Payload with all the information needed to setup a new position. 
+<p><strong>body</strong>: Payload with all the information needed to setup a new position.
 if <code>side=&quot;l&quot;</code>, the property <code>price</code> must be included in the request to know when the position should be filled.</p>
 <h4 id='enumerated-values-2'>Enumerated Values</h4>
 <table><thead>
@@ -2943,12 +3032,14 @@ if <code>side=&quot;l&quot;</code>, the property <code>price</code> must be incl
     </span><span class="nl">"closed_ts"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"format"</span><span class="p">:</span><span class="w"> </span><span class="s2">"date-time"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"nullable"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+      </span><span class="nl">"nullable"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"example"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="nl">"creation_ts"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"format"</span><span class="p">:</span><span class="w"> </span><span class="s2">"date-time"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"nullable"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+      </span><span class="nl">"nullable"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"example"</span><span class="p">:</span><span class="w"> </span><span class="s2">"020-09-15T10:50:40.332Z"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="nl">"exit_price"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
@@ -2987,7 +3078,8 @@ if <code>side=&quot;l&quot;</code>, the property <code>price</code> must be incl
     </span><span class="nl">"market_filled_ts"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"format"</span><span class="p">:</span><span class="w"> </span><span class="s2">"date-time"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"nullable"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+      </span><span class="nl">"nullable"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"example"</span><span class="p">:</span><span class="w"> </span><span class="s2">"020-09-15T10:50:40.332Z"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="nl">"market_wi"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
@@ -3437,12 +3529,14 @@ jwtAuth ( Scopes: positions ), cookieAuth
     </span><span class="nl">"closed_ts"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"format"</span><span class="p">:</span><span class="w"> </span><span class="s2">"date-time"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"nullable"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+      </span><span class="nl">"nullable"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"example"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="nl">"creation_ts"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"format"</span><span class="p">:</span><span class="w"> </span><span class="s2">"date-time"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"nullable"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+      </span><span class="nl">"nullable"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"example"</span><span class="p">:</span><span class="w"> </span><span class="s2">"020-09-15T10:50:40.332Z"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="nl">"exit_price"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
@@ -3481,7 +3575,8 @@ jwtAuth ( Scopes: positions ), cookieAuth
     </span><span class="nl">"market_filled_ts"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"format"</span><span class="p">:</span><span class="w"> </span><span class="s2">"date-time"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"nullable"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+      </span><span class="nl">"nullable"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"example"</span><span class="p">:</span><span class="w"> </span><span class="s2">"020-09-15T10:50:40.332Z"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="nl">"market_wi"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
@@ -4643,7 +4738,8 @@ jwtAuth ( Scopes: deposit ), cookieAuth
           </span><span class="p">},</span><span class="w">
           </span><span class="nl">"creation_ts"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"format"</span><span class="p">:</span><span class="w"> </span><span class="s2">"date-time"</span><span class="w">
+            </span><span class="nl">"format"</span><span class="p">:</span><span class="w"> </span><span class="s2">"date-time"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"example"</span><span class="p">:</span><span class="w"> </span><span class="s2">"020-09-15T10:50:40.332Z"</span><span class="w">
           </span><span class="p">},</span><span class="w">
           </span><span class="nl">"details"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
@@ -4901,22 +4997,29 @@ jwtAuth ( Scopes: user ), cookieAuth
           </span><span class="p">]</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="nl">"uniqueItems"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"maxItems"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="w">
+        </span><span class="nl">"maxItems"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"example"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="s2">"withdraw"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"deposit"</span><span class="w">
+        </span><span class="p">]</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="nl">"exp"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"format"</span><span class="p">:</span><span class="w"> </span><span class="s2">"date-time"</span><span class="w">
+        </span><span class="nl">"format"</span><span class="p">:</span><span class="w"> </span><span class="s2">"date-time"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"example"</span><span class="p">:</span><span class="w"> </span><span class="s2">"020-09-15T10:50:40.332Z"</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="nl">"iat"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"format"</span><span class="p">:</span><span class="w"> </span><span class="s2">"date-time"</span><span class="w">
+        </span><span class="nl">"format"</span><span class="p">:</span><span class="w"> </span><span class="s2">"date-time"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"example"</span><span class="p">:</span><span class="w"> </span><span class="s2">"020-09-15T10:50:40.332Z"</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="nl">"jti"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"example"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ckea35me20019r8u36374585f"</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="nl">"revoked"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="w">
+        </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"example"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">
@@ -5949,13 +6052,16 @@ This operation does not require authentication
   </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"object"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"properties"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nl">"withdraw"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="w">
+      </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"example"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="nl">"newposition"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="w">
+      </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"example"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="nl">"accountCreation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="w">
+      </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"example"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
