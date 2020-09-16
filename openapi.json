@@ -585,7 +585,6 @@
             "description": "List opened positions.",
             "schema": {
               "type": "boolean",
-              "default": true,
               "example": true
             }
           },
@@ -595,7 +594,6 @@
             "description": "List closed positions.",
             "schema": {
               "type": "boolean",
-              "default": false,
               "example": false
             }
           },
@@ -605,7 +603,6 @@
             "description": "List all positions.",
             "schema": {
               "type": "boolean",
-              "default": false,
               "example": false
             }
           }
