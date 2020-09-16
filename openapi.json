@@ -1378,24 +1378,59 @@
         }
       }
     },
-    "/state/api": {
+    "/state": {
       "get": {
         "tags": [
           "State"
         ],
         "security": [],
         "deprecated": false,
-        "summary": "API",
-        "description": "Shows available interactions with the platform.\n",
+        "summary": "API informations",
+        "description": "Shows informations about api, its specification and LND node.\n",
         "operationId": "State_apiState",
         "responses": {
           "200": {
-            "description": "Services are running (not necessarily available).\n",
+            "description": "The API is online.\n",
             "content": {
               "application/json": {
                 "schema": {
                   "type": "object",
                   "properties": {
+                    "ts": {
+                      "type": "integer",
+                      "format": "int64",
+                      "example": 1600244845097
+                    },
+                    "version": {
+                      "type": "object",
+                      "properties": {
+                        "api": {
+                          "type": "string",
+                          "example": "74958cef7d4416dfa7f2c13fd23cd4aa7b469047"
+                        },
+                        "spec": {
+                          "type": "string",
+                          "example": "31a4964e0ab4c77e7235ce5a0b458ba32dd8ace8"
+                        }
+                      }
+                    },
+                    "lnd": {
+                      "type": "object",
+                      "properties": {
+                        "version": {
+                          "type": "string",
+                          "example": "0.11.0-beta commit=v0.11.0-beta"
+                        },
+                        "clearnet": {
+                          "type": "string",
+                          "example": "03BAE2DB4B57738C1EC1FFA1C5E5A4423968CC592B3B39CDDF7D495E72919D6431@34.192.102.161:9735"
+                        },
+                        "onion": {
+                          "type": "string",
+                          "example": "03BAE2DB4B57738C1EC1FFA1C5E5A4423968CC592B3B39CDDF7D495E72919D6431@3pv4ci27cnahbztwlqtbez36rblecanoyxthrtjvxpk3en2y7dxfr3id.onion:9735"
+                        }
+                      }
+                    },
                     "withdraw": {
                       "type": "boolean",
                       "example": true
@@ -1407,44 +1442,6 @@
                     "accountCreation": {
                       "type": "boolean",
                       "example": true
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/state/node": {
-      "get": {
-        "tags": [
-          "State"
-        ],
-        "security": [],
-        "deprecated": false,
-        "summary": "Lightning node",
-        "description": "Shows informations about the node.\n",
-        "operationId": "State_nodeState",
-        "responses": {
-          "200": {
-            "description": "The Lightning node is online.\n",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "uri": {
-                      "type": "string",
-                      "example": "03375e4d3218dde2524feecaab7dc3a11a6ea186ff86c3cf2722e7237abc0d6d68@34.192.102.161:9735"
-                    },
-                    "alias": {
-                      "type": "string",
-                      "example": "Localnode"
-                    },
-                    "pubkey": {
-                      "type": "string",
-                      "example": "03375ead3218dd78024fe0caab7dc3a11a6ea186be86c3cf2722e7237abc0d6dc8"
                     }
                   }
                 }
