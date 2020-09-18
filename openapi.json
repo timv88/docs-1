@@ -236,7 +236,7 @@
         "deprecated": false,
         "summary": "Login via LNURL",
         "description": "Verify the public key with the signature and the k1 to create a account or connect into a existing account.\nThe connected state will be push over websockets.\n",
-        "operationId": "LNURL_authentificate",
+        "operationId": "LNURL_authenticate",
         "parameters": [
           {
             "name": "k1",
@@ -320,7 +320,7 @@
         ],
         "security": [],
         "deprecated": false,
-        "summary": "Authentification string",
+        "summary": "Authentication string",
         "description": "LNURL string used to create an account or connect to a existing account.\nThe user wallet will sign a message using the provided k1 inside the LNURL.\n",
         "operationId": "LNURL_authCreate",
         "responses": {
