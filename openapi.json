@@ -1004,7 +1004,7 @@
                     "description": "Leverage of the order",
                     "type": "number",
                     "format": "double",
-                    "multipleOf": 1,
+                    "multipleOf": 0.01,
                     "minimum": 1,
                     "maximum": 50
                   },
@@ -1223,13 +1223,18 @@
                     "pid": {
                       "description": "Position id",
                       "type": "string"
+                    },
+                    "pl": {
+                      "description": "PL of the position",
+                      "type": "integer"
                     }
                   },
                   "example": {
                     "pid": "a2ca6172-1078-463d-ae3f-8733f36a9b0e",
                     "exit_price": 2000,
                     "closed_ts": "020-10-15T10:50:40.332Z",
-                    "closed": false
+                    "closed": true,
+                    "pl": 1337
                   }
                 }
               }
@@ -1309,17 +1314,12 @@
                       "description": "Position ID",
                       "type": "string",
                       "pattern": "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$"
-                    },
-                    "pl": {
-                      "description": "PL of the position",
-                      "type": "string"
                     }
                   },
                   "example": {
                     "pid": "b87eef8a-52ab-2fea-1adc-c41fba870b0f",
                     "canceled": true,
-                    "canceled_ts": "020-11-15T10:50:40.332Z",
-                    "pl": 1337
+                    "canceled_ts": "020-11-15T10:50:40.332Z"
                   }
                 }
               }
