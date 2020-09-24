@@ -748,7 +748,7 @@
                 "required": [
                   "side",
                   "type",
-                  "margin"
+                  "leverage"
                 ],
                 "properties": {
                   "type": {
@@ -790,21 +790,21 @@
                     "description": "Takeprofit level",
                     "type": "number",
                     "format": "double",
-                    "multipleOf": 0.1,
+                    "multipleOf": 0.5,
                     "minimum": 1
                   },
                   "stoploss": {
                     "description": "Stoploss level",
                     "type": "number",
                     "format": "double",
-                    "multipleOf": 0.1,
+                    "multipleOf": 0.5,
                     "minimum": 1
                   },
                   "price": {
                     "description": "Required when using a limit order",
                     "type": "number",
                     "format": "double",
-                    "multipleOf": 0.1,
+                    "multipleOf": 0.5,
                     "minimum": 1
                   }
                 },
@@ -983,7 +983,7 @@
                   },
                   "value": {
                     "type": "number",
-                    "multipleOf": 0.1,
+                    "multipleOf": 0.5,
                     "minimum": 0
                   }
                 },
