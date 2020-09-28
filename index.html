@@ -1466,7 +1466,7 @@ jwtAuth ( Scopes: positions ), cookieAuth
 <tr>
 <td>» quantity</td>
 <td>body</td>
-<td>integer</td>
+<td>number</td>
 <td>false</td>
 <td>Quantity or margin should be filled</td>
 </tr>
@@ -2123,25 +2123,31 @@ jwtAuth ( Scopes: positions ), cookieAuth
 </tr>
 </thead><tbody>
 <tr>
-<td>open</td>
+<td>type</td>
 <td>query</td>
-<td>boolean</td>
+<td>string</td>
 <td>false</td>
 <td>List opened positions.</td>
 </tr>
+</tbody></table>
+<h4 id='enumerated-values-3'>Enumerated Values</h4>
+<table><thead>
 <tr>
-<td>closed</td>
-<td>query</td>
-<td>boolean</td>
-<td>false</td>
-<td>List closed positions.</td>
+<th>Parameter</th>
+<th>Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>type</td>
+<td>all</td>
 </tr>
 <tr>
-<td>all</td>
-<td>query</td>
-<td>boolean</td>
-<td>false</td>
-<td>List all positions.</td>
+<td>type</td>
+<td>open</td>
+</tr>
+<tr>
+<td>type</td>
+<td>closed</td>
 </tr>
 </tbody></table>
 
@@ -2724,7 +2730,7 @@ jwtAuth ( Scopes: user ), cookieAuth
 <td>Which kind of transactions will be fetched.</td>
 </tr>
 </tbody></table>
-<h4 id='enumerated-values-3'>Enumerated Values</h4>
+<h4 id='enumerated-values-4'>Enumerated Values</h4>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -3204,7 +3210,7 @@ cookieAuth
 </tbody></table>
 <h4 id='detailed-descriptions-3'>Detailed descriptions</h4>
 <p><strong>body</strong>: Scopes of authorization that the token will grant to the bearer.</p>
-<h4 id='enumerated-values-4'>Enumerated Values</h4>
+<h4 id='enumerated-values-5'>Enumerated Values</h4>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -3751,7 +3757,7 @@ jwtAuth ( Scopes: withdraw ), cookieAuth
 </tbody></table>
 <h4 id='detailed-descriptions-6'>Detailed descriptions</h4>
 <p><strong>body</strong>: Amount the user wants to withdraw.</p>
-<h4 id='enumerated-values-5'>Enumerated Values</h4>
+<h4 id='enumerated-values-6'>Enumerated Values</h4>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -4384,7 +4390,7 @@ The connected state will be push over websocketsto the client.</p>
 <td>Timestamp.</td>
 </tr>
 </tbody></table>
-<h4 id='enumerated-values-6'>Enumerated Values</h4>
+<h4 id='enumerated-values-7'>Enumerated Values</h4>
 <table><thead>
 <tr>
 <th>Parameter</th>
