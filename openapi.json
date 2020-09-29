@@ -689,7 +689,7 @@
                       "description": "Canncel success",
                       "type": "boolean"
                     },
-                    "canceled_ts": {
+                    "closed_ts": {
                       "description": "When the position was canceled",
                       "type": "string",
                       "format": "date-time"
@@ -703,7 +703,7 @@
                   "example": {
                     "pid": "b87eef8a-52ab-2fea-1adc-c41fba870b0f",
                     "canceled": true,
-                    "canceled_ts": "020-11-15T10:50:40.332Z"
+                    "closed_ts": "020-11-15T10:50:40.332Z"
                   }
                 }
               }
@@ -1209,12 +1209,6 @@
                         "description": "Is the position canceled",
                         "type": "boolean"
                       },
-                      "canceled_ts": {
-                        "description": "When the position was canceled",
-                        "type": "string",
-                        "format": "date-time",
-                        "nullable": true
-                      },
                       "closed": {
                         "description": "Is the position closed",
                         "type": "boolean"
@@ -1282,8 +1276,7 @@
                         "creation_ts": "020-09-15T10:50:40.332Z",
                         "closed_ts": "020-10-15T10:50:40.332Z",
                         "closed": false,
-                        "canceled": true,
-                        "canceled_ts": "020-11-15T10:50:40.332Z"
+                        "canceled": true
                       }
                     ]
                   }
