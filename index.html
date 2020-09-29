@@ -1272,7 +1272,7 @@ This operation does not require authentication
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"pid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"b87eef8a-52ab-2fea-1adc-c41fba870b0f"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"canceled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"canceled_ts"</span><span class="p">:</span><span class="w"> </span><span class="s2">"020-11-15T10:50:40.332Z"</span><span class="w">
+  </span><span class="nl">"closed_ts"</span><span class="p">:</span><span class="w"> </span><span class="s2">"020-11-15T10:50:40.332Z"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <h3 id="cancel-responses">Responses</h3>
@@ -1326,7 +1326,7 @@ This operation does not require authentication
 <td>Canncel success</td>
 </tr>
 <tr>
-<td>» canceled_ts</td>
+<td>» closed_ts</td>
 <td>string(date-time)</td>
 <td>false</td>
 <td>none</td>
@@ -2181,8 +2181,7 @@ jwtAuth ( Scopes: positions ), cookieAuth
       </span><span class="nl">"creation_ts"</span><span class="p">:</span><span class="w"> </span><span class="s2">"020-09-15T10:50:40.332Z"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"closed_ts"</span><span class="p">:</span><span class="w"> </span><span class="s2">"020-10-15T10:50:40.332Z"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"closed"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"canceled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"canceled_ts"</span><span class="p">:</span><span class="w"> </span><span class="s2">"020-11-15T10:50:40.332Z"</span><span class="w">
+      </span><span class="nl">"canceled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -2327,13 +2326,6 @@ jwtAuth ( Scopes: positions ), cookieAuth
 <td>false</td>
 <td>none</td>
 <td>Is the position canceled</td>
-</tr>
-<tr>
-<td>» canceled_ts</td>
-<td>string(date-time)¦null</td>
-<td>false</td>
-<td>none</td>
-<td>When the position was canceled</td>
 </tr>
 <tr>
 <td>» closed</td>
