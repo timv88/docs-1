@@ -314,10 +314,13 @@
             <a href="#authentication" class="toc-h1 toc-link" data-title="Authentication">Authentication</a>
           </li>
           <li>
-            <a href="#rate-limiter" class="toc-h1 toc-link" data-title="Rate Limiter">Rate Limiter</a>
+            <a href="#limits" class="toc-h1 toc-link" data-title="Limits">Limits</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#headers" class="toc-h2 toc-link" data-title="Headers">Headers</a>
+                    <a href="#positions" class="toc-h2 toc-link" data-title="Positions">Positions</a>
+                  </li>
+                  <li>
+                    <a href="#rate" class="toc-h2 toc-link" data-title="Rate">Rate</a>
                   </li>
               </ul>
           </li>
@@ -470,21 +473,42 @@ The JWT must be provided within the header AUTHORIZATION like :</p>
 <p><strong>Note :</strong> Never share your JWT !</p>
 
 <p>You can revoke any JWT on your profile page</p>
-<h1 id='rate-limiter'>Rate Limiter</h1>
+<h1 id='limits'>Limits</h1><h2 id='positions'>Positions</h2>
+<p>There is a maximum of 50 open positions per account.</p>
+<h2 id='rate'>Rate</h2>
 <p>Requests to our REST API are rate limited to 1 requests per second.</p>
 
 <p>Endpoint who does not require authentication are limited to 30 requests per minute.</p>
 
 <p>If you throw too much error such as 4XX or 5XX we could ban your IP for a certain amount of time.</p>
-<h3 id='headers'>Headers</h3><div class="highlight"><pre class="highlight plaintext"><code>"retry-after": "14",
-"x-ratelimit-remaining": "0",
-"x-ratelimit-reset": "1601997680244",
-</code></pre></div>
-<p>retry-after will tell you how many seconds you need to wait to call this endpoint if your limit is down to 0.</p>
+<h3 id='headers'>Headers</h3>
+<table><thead>
+<tr>
+<th>Header</th>
+<th>Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Retry-After</td>
+<td>14</td>
+</tr>
+<tr>
+<td>X-Ratelimit-Remaining</td>
+<td>0</td>
+</tr>
+<tr>
+<td>X-Ratelimit-Reset</td>
+<td>1601997680244</td>
+</tr>
+</tbody></table>
 
-<p>x-ratelimit-remaining is how many request do you have left.</p>
+<p><br/></p>
 
-<p>x-ratelimit-reset is the timestamp in ms when you will be granted new points.</p>
+<p>Retry-After : Will tell you how many seconds you need to wait to call this endpoint if your limit is down to 0.</p>
+
+<p>X-Ratelimit-Remaining : This is how many request do you have left.</p>
+
+<p>X-Ratelimit-Reset: This is the timestamp in ms when you will be granted new points.</p>
 <h1 id='websocket'>Websocket</h1>
 <p>You can find a websocket endpoint where you can gather realtime data from LN Markets such as bid, offer, index and last price.</p>
 
