@@ -815,7 +815,8 @@
                   "price": 10000,
                   "stoploss": 9000,
                   "takeprofit": 11000,
-                  "quantity": 100
+                  "quantity": 100,
+                  "leverage": 50
                 }
               }
             }
