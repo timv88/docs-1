@@ -314,6 +314,17 @@
             <a href="#authentication" class="toc-h1 toc-link" data-title="Authentication">Authentication</a>
           </li>
           <li>
+            <a href="#rate-limiter" class="toc-h1 toc-link" data-title="Rate Limiter">Rate Limiter</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#headers" class="toc-h2 toc-link" data-title="Headers">Headers</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#websocket" class="toc-h1 toc-link" data-title="Websocket">Websocket</a>
+          </li>
+          <li>
             <a href="#errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
           </li>
           <li>
@@ -443,7 +454,7 @@
 If you want to try our API with <bold>testnet</bold> bitcoin use <code>https://api.testnet.lnmarkets.com</code>
 </aside>
 <h1 id='authentication'>Authentication</h1>
-<p>One type of authentification is required, currently we are using a JSON Web Token (<a href="https://jwt.io/">JWT</a>)</p>
+<p>One type of authentication is required, currently we are using a JSON Web Token (<a href="https://jwt.io/">JWT</a>)</p>
 
 <p>The token can be generated with various scopes such as:
 - user
@@ -459,6 +470,27 @@ The JWT must be provided within the header AUTHORIZATION like :</p>
 <p><strong>Note :</strong> Never share your JWT !</p>
 
 <p>You can revoke any JWT on your profile page</p>
+<h1 id='rate-limiter'>Rate Limiter</h1>
+<p>Requests to our REST API are rate limited to 1 requests per second.</p>
+
+<p>Endpoint who does not require authentication are limited to 30 requests per minute.</p>
+
+<p>If you throw too much error such as 4XX or 5XX we could ban your IP for a certain amount of time.</p>
+<h3 id='headers'>Headers</h3><div class="highlight"><pre class="highlight python tab-python"><code><span class="s">"retry-after"</span><span class="p">:</span> <span class="s">"14"</span><span class="p">,</span>
+<span class="s">"x-ratelimit-remaining"</span><span class="p">:</span> <span class="s">"0"</span><span class="p">,</span>
+<span class="s">"x-ratelimit-reset"</span><span class="p">:</span> <span class="s">"1601997680244"</span><span class="p">,</span>
+</code></pre></div>
+<p>retry-after will tell you how many seconds you need to wait to call this endpoint</p>
+
+<p>x-ratelimit-remaining is how many request do you have left</p>
+<h1 id='websocket'>Websocket</h1>
+<p>You can find a websocket endpoint where you can gather realtime data from LN Markets such as bid, offer, index and last price.</p>
+
+<p>The websocket endpoint for mainnet is : <code>wss://api.lnmarkets.com/realtime</code></p>
+
+<p>You are limited to 60 connections per hour</p>
+
+<p>Authentication to websocket will come soon !</p>
 <h1 id='errors'>Errors</h1>
 <table><thead>
 <tr>
