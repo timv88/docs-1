@@ -2729,7 +2729,7 @@ jwtAuth ( Scopes: user ), cookieAuth
 
 <span class="n">url</span> <span class="o">=</span> <span class="s">"https://api.lnmarkets.com/user/history"</span>
 
-<span class="n">querystring</span> <span class="o">=</span> <span class="p">{</span><span class="s">"type"</span><span class="p">:</span><span class="s">"deposit"</span><span class="p">,</span><span class="s">"nbItem"</span><span class="p">:</span><span class="s">"15"</span><span class="p">,</span><span class="s">"index"</span><span class="p">:</span><span class="s">"1"</span><span class="p">,</span><span class="s">"getLength"</span><span class="p">:</span><span class="s">"true"</span><span class="p">,</span><span class="s">"start"</span><span class="p">:</span><span class="s">"2020-06-01T00:00:00Z"</span><span class="p">,</span><span class="s">"end"</span><span class="p">:</span><span class="s">"2012-12-21T00:00:00Z"</span><span class="p">}</span>
+<span class="n">querystring</span> <span class="o">=</span> <span class="p">{</span><span class="s">"type"</span><span class="p">:</span><span class="s">"deposit"</span><span class="p">}</span>
 
 <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s">'accept'</span><span class="p">:</span> <span class="s">"application/json"</span><span class="p">,</span>
@@ -2744,14 +2744,7 @@ jwtAuth ( Scopes: user ), cookieAuth
 <span class="kd">const</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span>
   <span class="na">method</span><span class="p">:</span> <span class="dl">'</span><span class="s1">GET</span><span class="dl">'</span><span class="p">,</span>
   <span class="na">url</span><span class="p">:</span> <span class="dl">'</span><span class="s1">https://api.lnmarkets.com/user/history</span><span class="dl">'</span><span class="p">,</span>
-  <span class="na">qs</span><span class="p">:</span> <span class="p">{</span>
-    <span class="na">type</span><span class="p">:</span> <span class="dl">'</span><span class="s1">deposit</span><span class="dl">'</span><span class="p">,</span>
-    <span class="na">nbItem</span><span class="p">:</span> <span class="dl">'</span><span class="s1">15</span><span class="dl">'</span><span class="p">,</span>
-    <span class="na">index</span><span class="p">:</span> <span class="dl">'</span><span class="s1">1</span><span class="dl">'</span><span class="p">,</span>
-    <span class="na">getLength</span><span class="p">:</span> <span class="dl">'</span><span class="s1">true</span><span class="dl">'</span><span class="p">,</span>
-    <span class="na">start</span><span class="p">:</span> <span class="dl">'</span><span class="s1">2020-06-01T00:00:00Z</span><span class="dl">'</span><span class="p">,</span>
-    <span class="na">end</span><span class="p">:</span> <span class="dl">'</span><span class="s1">2012-12-21T00:00:00Z</span><span class="dl">'</span>
-  <span class="p">},</span>
+  <span class="na">qs</span><span class="p">:</span> <span class="p">{</span><span class="na">type</span><span class="p">:</span> <span class="dl">'</span><span class="s1">deposit</span><span class="dl">'</span><span class="p">},</span>
   <span class="na">headers</span><span class="p">:</span> <span class="p">{</span><span class="na">accept</span><span class="p">:</span> <span class="dl">'</span><span class="s1">application/json</span><span class="dl">'</span><span class="p">,</span> <span class="na">authorization</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Bearer {access-token}</span><span class="dl">'</span><span class="p">}</span>
 <span class="p">};</span>
 
@@ -2762,13 +2755,13 @@ jwtAuth ( Scopes: user ), cookieAuth
 <span class="p">});</span>
 
 </code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--request</span> GET <span class="se">\</span>
-  <span class="nt">--url</span> <span class="s1">'https://api.lnmarkets.com/user/history?type=deposit&amp;nbItem=15&amp;index=1&amp;getLength=true&amp;start=2020-06-01T00%3A00%3A00Z&amp;end=2012-12-21T00%3A00%3A00Z'</span> <span class="se">\</span>
+  <span class="nt">--url</span> <span class="s1">'https://api.lnmarkets.com/user/history?type=deposit'</span> <span class="se">\</span>
   <span class="nt">--header</span> <span class="s1">'accept: application/json'</span> <span class="se">\</span>
   <span class="nt">--header</span> <span class="s1">'authorization: Bearer {access-token}'</span>
 </code></pre></div>
 <p><code>GET /user/history</code></p>
 
-<p>Retrieves all withdraw or deposit you did with LN Markets</p>
+<p>Retrieves all withdraw or deposit you did with LN Markets or just one page</p>
 
 <h3 id="transactions-parameters">Parameters</h3>
 
@@ -2792,35 +2785,35 @@ jwtAuth ( Scopes: user ), cookieAuth
 <td>nbItem</td>
 <td>query</td>
 <td>integer</td>
-<td>true</td>
+<td>false</td>
 <td>Maximum length of the returned table.</td>
 </tr>
 <tr>
 <td>index</td>
 <td>query</td>
 <td>integer</td>
-<td>true</td>
+<td>false</td>
 <td>Which page we want (is used for offset computation).</td>
 </tr>
 <tr>
 <td>getLength</td>
 <td>query</td>
 <td>boolean</td>
-<td>true</td>
+<td>false</td>
 <td>Return the length of the date slice given.</td>
 </tr>
 <tr>
 <td>start</td>
 <td>query</td>
 <td>string</td>
-<td>true</td>
+<td>false</td>
 <td>Start of the time interval.</td>
 </tr>
 <tr>
 <td>end</td>
 <td>query</td>
 <td>string</td>
-<td>true</td>
+<td>false</td>
 <td>End of the time interval.</td>
 </tr>
 </tbody></table>
