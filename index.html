@@ -4421,7 +4421,8 @@ This operation does not require authentication
 <p><code>GET /lnurl/a</code></p>
 
 <p>Verify the public key with the signature and the k1 to create a account or connect into a existing account.
-The connected state will be push over websocketsto the client.</p>
+If JWT is set to true, a JWT will be returned with by default all scopes and an expiry of 1h, they can be changed by setting the query paramater expiry or scopes like POST /user/jwt.
+Else the connected state will be push over websocketsto the client.</p>
 
 <h3 id="auth-2-parameters">Parameters</h3>
 
@@ -4486,9 +4487,16 @@ The connected state will be push over websocketsto the client.</p>
 <tr>
 <td>expiry</td>
 <td>query</td>
-<td>integer</td>
+<td>integer(int32)</td>
 <td>false</td>
-<td>JWT expiration, default to 60</td>
+<td>JWT expiration, default to 3600</td>
+</tr>
+<tr>
+<td>scopes</td>
+<td>query</td>
+<td>string</td>
+<td>false</td>
+<td>Scope of the jwt, default to &#39;deposit&#39;, &#39;withdraw&#39;, &#39;positions&#39;, &#39;user&#39;</td>
 </tr>
 </tbody></table>
 <h4 id='enumerated-values-7'>Enumerated Values</h4>
@@ -4564,6 +4572,13 @@ The connected state will be push over websocketsto the client.</p>
 <td>false</td>
 <td>none</td>
 <td>State of the user</td>
+</tr>
+<tr>
+<td>» token</td>
+<td>string</td>
+<td>false</td>
+<td>none</td>
+<td>JWT if asked</td>
 </tr>
 </tbody></table>
 
