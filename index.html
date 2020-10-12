@@ -459,20 +459,20 @@ If you want to try our API with <bold>testnet</bold> bitcoin use <code>https://a
 <h1 id='authentication'>Authentication</h1>
 <p>One type of authentication is required, currently we are using a JSON Web Token (<a href="https://jwt.io/">JWT</a>)</p>
 
-<p>The token can be generated with various scopes such as:
+<p>The JWT can be generated with various scopes such as:
 - user
 - positions
 - deposit
 - withdraw</p>
 
-<p>The JWT can be valid for a period of time (15m, 30m, 1h,6h ,12h ,24h , ... 30d) or indefinitely.
+<p>The JWT can be valid for a given period of time (15m, 30m, 1h, 6h, 12h, 24h, ... , 30d) or indefinitely.
 The JWT must be provided within the header AUTHORIZATION like :</p>
 
 <p><code>Authorization: Bearer &lt;token&gt;</code></p>
 
 <p><strong>Note :</strong> Never share your JWT !</p>
 
-<p>You can revoke any JWT on your profile page</p>
+<p>You can revoke any JWT on your profile page.</p>
 <h1 id='limits'>Limits</h1><h2 id='positions'>Positions</h2>
 <p>There is a maximum of 50 open positions per account.</p>
 <h2 id='rate'>Rate</h2>
