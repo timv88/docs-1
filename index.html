@@ -1083,8 +1083,7 @@ This operation does not require authentication
 <p><code>POST /login/joule</code></p>
 
 <p>Use the browser extension <a href="https://lightningjoule.com/">Joule</a> to authenticate user.
-A random message will be signed with the user&#39;s wallet private key,
-this message will be send with the signature to allow LND to authenticate the user</p>
+The message has to be obtained using GET /login/joule</p>
 
 <blockquote>
 <p>Body parameter</p>
@@ -1118,7 +1117,7 @@ this message will be send with the signature to allow LND to authenticate the us
 <td>body</td>
 <td>string</td>
 <td>true</td>
-<td>Message signed by the wallet private key</td>
+<td>Message signed by the wallet private key, who is obtained using GET /login/joule</td>
 </tr>
 <tr>
 <td>» signature</td>
@@ -1131,7 +1130,7 @@ this message will be send with the signature to allow LND to authenticate the us
 <td>» alias</td>
 <td>body</td>
 <td>string</td>
-<td>true</td>
+<td>false</td>
 <td>Node alias if avalaible</td>
 </tr>
 </tbody></table>
@@ -1237,7 +1236,7 @@ this message will be send with the signature to allow LND to authenticate the us
 This operation does not require authentication
 </aside>
 <h2 id='request-message'>Request message</h2>
-<p><a id="opIdLogin_getMessage"></a></p>
+<p><a id="opIdLogin_getJouleMessage"></a></p>
 
 <blockquote>
 <p>Code samples</p>
@@ -1271,7 +1270,7 @@ This operation does not require authentication
 </code></pre></div>
 <p><code>GET /login/joule</code></p>
 
-<p>Generates a message that user can sign</p>
+<p>Generates a message that user can sign with POST /login/joule</p>
 
 <blockquote>
 <p>Example responses</p>
@@ -1279,7 +1278,7 @@ This operation does not require authentication
 <p>200 Response</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+  </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"I am signing this message to login on LN Markets : 09d9bc06786d37eae6b60b537475d83d6b97177af22a74160a1fc3b0721f051e"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <h3 id="request-message-responses">Responses</h3>
@@ -1318,7 +1317,7 @@ This operation does not require authentication
 <td>string</td>
 <td>false</td>
 <td>none</td>
-<td>Invoice string</td>
+<td>The message contain a fixed part : &quot;I am signing this message to login on LN Markets&quot;<br>and a variable one who is a 64 char hex string, the variable one is used to identify which session should be authentificated</td>
 </tr>
 </tbody></table>
 
