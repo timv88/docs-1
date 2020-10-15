@@ -108,14 +108,11 @@
                 "properties": {
                   "paymentHash": {
                     "type": "string",
-                    "minLength": 64,
-                    "maxLength": 64
+                    "pattern": "^[a-fA-F0-9]{64}$"
                   },
                   "login": {
                     "type": "string",
-                    "pattern": "^\\S{6,32}$",
-                    "minLength": 6,
-                    "maxLength": 32
+                    "pattern": "^\\S{6,32}$"
                   },
                   "password": {
                     "type": "string",
@@ -148,7 +145,7 @@
                   ],
                   "properties": {
                     "username": {
-                      "description": "User choosen username (May differe from login)",
+                      "description": "User chosen username (May differ from login)",
                       "type": "string"
                     },
                     "balance": {
