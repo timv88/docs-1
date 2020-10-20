@@ -1505,6 +1505,85 @@
         }
       }
     },
+    "/state/leaderboard": {
+      "get": {
+        "tags": [
+          "Leaderboard"
+        ],
+        "security": [],
+        "deprecated": false,
+        "summary": "Get current Leaderboard",
+        "description": "Queries the database to get the 10 users with the biggest posititve PL\n",
+        "operationId": "Leaderboard_getLeaderboard",
+        "responses": {
+          "200": {
+            "description": "Leaderboard successfully fetched",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "username": {
+                        "type": "string",
+                        "description": "Username or 'Anonymous' if the Leaderboard view is disabled\n"
+                      },
+                      "pl": {
+                        "type": "integer",
+                        "description": "Sum of every profits and losses of the user"
+                      }
+                    }
+                  }
+                },
+                "example": [
+                  {
+                    "username": "Bob",
+                    "pl": 4242424242
+                  },
+                  {
+                    "username": "Jean-Kevin",
+                    "pl": 3491941
+                  },
+                  {
+                    "username": "Roger",
+                    "pl": 24013441
+                  },
+                  {
+                    "username": "Laura",
+                    "pl": 23126094
+                  },
+                  {
+                    "username": "Marcus",
+                    "pl": 1414019
+                  },
+                  {
+                    "username": "Charles",
+                    "pl": 242918
+                  },
+                  {
+                    "username": "Antoine",
+                    "pl": 99999
+                  },
+                  {
+                    "username": "XXxRoBeRtLeBgDu24xXX",
+                    "pl": 61491
+                  },
+                  {
+                    "username": "CRYPTOKING",
+                    "pl": 10000
+                  },
+                  {
+                    "username": "HEY",
+                    "pl": 3
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
     "/user": {
       "get": {
         "tags": [
@@ -1544,6 +1623,10 @@
                       "description": "Username",
                       "type": "string"
                     },
+                    "login": {
+                      "description": "Login",
+                      "type": "string"
+                    },
                     "account_type": {
                       "description": "One of ['lnurl', 'credentials', 'joule']",
                       "type": "string"
@@ -1560,6 +1643,7 @@
                   "example": {
                     "uid": "d068f829-26e6-4743-b10d-ebb5a83b3624",
                     "balance": 361086,
+                    "login": null,
                     "account_type": "Joule",
                     "username": "Testnet-node",
                     "linkingpublickey": "035555cbdd2b5642bbd196b31df477fad20125ae99119fd5ffb1d42c7f4811dd3a",
@@ -1574,6 +1658,65 @@
           }
         }
       },
+      "put": {
+        "tags": [
+          "User"
+        ],
+        "security": [
+          {
+            "jwtAuth": [
+              "user"
+            ]
+          },
+          {
+            "cookieAuth": []
+          }
+        ],
+        "deprecated": false,
+        "summary": "Update user",
+        "description": "Modifies account parameters",
+        "operationId": "User_updateUser",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "minProperties": 1,
+                "additionalProperties": false,
+                "properties": {
+                  "show_leaderboard": {
+                    "description": "Show the username in the leaderboard",
+                    "type": "boolean"
+                  },
+                  "username": {
+                    "description": "Name showed on login and in the leaderboard",
+                    "type": "string",
+                    "pattern": "^\\S{6,32}$"
+                  }
+                },
+                "example": {
+                  "show_leaderboard": true,
+                  "username": "Cryptoking"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The user was successfully updated"
+          },
+          "400": {
+            "description": "The request query and / or body does not fit the schema requirements. It can also be raised by parameters leading to unexpected behaviour / results."
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        }
+      }
+    },
+    "/user/update-password": {
       "put": {
         "tags": [
           "User"
