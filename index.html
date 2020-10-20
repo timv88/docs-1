@@ -346,6 +346,9 @@
                     <a href="#login-via-credentials" class="toc-h2 toc-link" data-title="Login via credentials">Login via credentials</a>
                   </li>
                   <li>
+                    <a href="#reset-password" class="toc-h2 toc-link" data-title="Reset password">Reset password</a>
+                  </li>
+                  <li>
                     <a href="#login-via-joule" class="toc-h2 toc-link" data-title="Login via Joule">Login via Joule</a>
                   </li>
                   <li>
@@ -408,9 +411,6 @@
                   </li>
                   <li>
                     <a href="#logout" class="toc-h2 toc-link" data-title="Logout">Logout</a>
-                  </li>
-                  <li>
-                    <a href="#reset-password" class="toc-h2 toc-link" data-title="Reset password">Reset password</a>
                   </li>
               </ul>
           </li>
@@ -1049,6 +1049,130 @@ This operation does not require authentication
 <aside class="success">
 This operation does not require authentication
 </aside>
+<h2 id='reset-password'>Reset password</h2>
+<p><a id="opIdUser_resetUserPassword"></a></p>
+
+<blockquote>
+<p>Code samples</p>
+</blockquote>
+<div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s">"https://api.lnmarkets.com/login/credentials/reset"</span>
+
+<span class="n">payload</span> <span class="o">=</span> <span class="s">"{</span><span class="se">\"</span><span class="s">login</span><span class="se">\"</span><span class="s">:</span><span class="se">\"</span><span class="s">lnmarkets</span><span class="se">\"</span><span class="s">,</span><span class="se">\"</span><span class="s">paymentHash</span><span class="se">\"</span><span class="s">:</span><span class="se">\"</span><span class="s">b45dd2e30309aa708a73f0cfa0e38db5bbbbd16055087a692e0711365e7e08f5</span><span class="se">\"</span><span class="s">,</span><span class="se">\"</span><span class="s">newPassword</span><span class="se">\"</span><span class="s">:</span><span class="se">\"</span><span class="s">PleaseDontStealMySats</span><span class="se">\"</span><span class="s">}"</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s">'content-type'</span><span class="p">:</span> <span class="s">'application/json'</span><span class="p">}</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">request</span><span class="p">(</span><span class="s">"PUT"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">payload</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">text</span><span class="p">)</span>
+</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript--node"><code><span class="kd">const</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">request</span><span class="dl">'</span><span class="p">);</span>
+
+<span class="kd">const</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">method</span><span class="p">:</span> <span class="dl">'</span><span class="s1">PUT</span><span class="dl">'</span><span class="p">,</span>
+  <span class="na">url</span><span class="p">:</span> <span class="dl">'</span><span class="s1">https://api.lnmarkets.com/login/credentials/reset</span><span class="dl">'</span><span class="p">,</span>
+  <span class="na">headers</span><span class="p">:</span> <span class="p">{</span><span class="dl">'</span><span class="s1">content-type</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">application/json</span><span class="dl">'</span><span class="p">},</span>
+  <span class="na">body</span><span class="p">:</span> <span class="p">{</span>
+    <span class="na">login</span><span class="p">:</span> <span class="dl">'</span><span class="s1">lnmarkets</span><span class="dl">'</span><span class="p">,</span>
+    <span class="na">paymentHash</span><span class="p">:</span> <span class="dl">'</span><span class="s1">b45dd2e30309aa708a73f0cfa0e38db5bbbbd16055087a692e0711365e7e08f5</span><span class="dl">'</span><span class="p">,</span>
+    <span class="na">newPassword</span><span class="p">:</span> <span class="dl">'</span><span class="s1">PleaseDontStealMySats</span><span class="dl">'</span>
+  <span class="p">},</span>
+  <span class="na">json</span><span class="p">:</span> <span class="kc">true</span>
+<span class="p">};</span>
+
+<span class="nx">request</span><span class="p">(</span><span class="nx">options</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">response</span><span class="p">,</span> <span class="nx">body</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
+
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">body</span><span class="p">);</span>
+<span class="p">});</span>
+
+</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--request</span> PUT <span class="se">\</span>
+  <span class="nt">--url</span> https://api.lnmarkets.com/login/credentials/reset <span class="se">\</span>
+  <span class="nt">--header</span> <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
+  <span class="nt">--data</span> <span class="s1">'{"login":"lnmarkets","paymentHash":"b45dd2e30309aa708a73f0cfa0e38db5bbbbd16055087a692e0711365e7e08f5","newPassword":"PleaseDontStealMySats"}'</span>
+</code></pre></div>
+<p><code>PUT /login/credentials/reset</code></p>
+
+<p>Reset password with your payment hash.</p>
+
+<blockquote>
+<p>Body parameter</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"login"</span><span class="p">:</span><span class="w"> </span><span class="s2">"lnmarkets"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"paymentHash"</span><span class="p">:</span><span class="w"> </span><span class="s2">"b45dd2e30309aa708a73f0cfa0e38db5bbbbd16055087a692e0711365e7e08f5"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"newPassword"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PleaseDontStealMySats"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<h3 id="reset-password-parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>In</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>body</td>
+<td>body</td>
+<td>object</td>
+<td>true</td>
+<td>Payload containing login, payment hash and the new password.</td>
+</tr>
+<tr>
+<td>» newPassword</td>
+<td>body</td>
+<td>string(password)</td>
+<td>true</td>
+<td>New password wanted by the user</td>
+</tr>
+<tr>
+<td>» paymentHash</td>
+<td>body</td>
+<td>string</td>
+<td>true</td>
+<td>none</td>
+</tr>
+<tr>
+<td>» login</td>
+<td>body</td>
+<td>string</td>
+<td>true</td>
+<td>none</td>
+</tr>
+</tbody></table>
+<h4 id='detailed-descriptions'>Detailed descriptions</h4>
+<p><strong>body</strong>: Payload containing login, payment hash and the new password.</p>
+
+<h3 id="reset-password-responses">Responses</h3>
+
+<table><thead>
+<tr>
+<th>Status</th>
+<th>Meaning</th>
+<th>Description</th>
+<th>Schema</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td><a href="https://tools.ietf.org/html/rfc7231#section-6.3.1">OK</a></td>
+<td>Password successfuly reset.</td>
+<td>None</td>
+</tr>
+<tr>
+<td>400</td>
+<td><a href="https://tools.ietf.org/html/rfc7231#section-6.5.1">Bad Request</a></td>
+<td>The request query and / or body does not fit the schema requirements. It can also be raised by parameters leading to unexpected behaviour / results.</td>
+<td>None</td>
+</tr>
+</tbody></table>
+
+<aside class="success">
+This operation does not require authentication
+</aside>
 <h2 id='login-via-joule'>Login via Joule</h2>
 <p><a id="opIdLogin_loginJoule"></a></p>
 
@@ -1657,7 +1781,7 @@ jwtAuth ( Scopes: positions ), cookieAuth
 <td>Required when using a limit order</td>
 </tr>
 </tbody></table>
-<h4 id='detailed-descriptions'>Detailed descriptions</h4>
+<h4 id='detailed-descriptions-2'>Detailed descriptions</h4>
 <p><strong>body</strong>: Payload with all the information needed to setup a new position.</p>
 <h4 id='enumerated-values'>Enumerated Values</h4>
 <table><thead>
@@ -2916,7 +3040,7 @@ jwtAuth ( Scopes: user ), cookieAuth
 <td>New password wanted by the user</td>
 </tr>
 </tbody></table>
-<h4 id='detailed-descriptions-2'>Detailed descriptions</h4>
+<h4 id='detailed-descriptions-3'>Detailed descriptions</h4>
 <p><strong>body</strong>: Payload containing user credentials.</p>
 
 <h3 id="update-password-responses">Responses</h3>
@@ -3529,7 +3653,7 @@ cookieAuth
 <td>Expiration of the token</td>
 </tr>
 </tbody></table>
-<h4 id='detailed-descriptions-3'>Detailed descriptions</h4>
+<h4 id='detailed-descriptions-4'>Detailed descriptions</h4>
 <p><strong>body</strong>: Scopes of authorization that the token will grant to the bearer.</p>
 <h4 id='enumerated-values-5'>Enumerated Values</h4>
 <table><thead>
@@ -3713,7 +3837,7 @@ cookieAuth
 <td>Should be sat by default</td>
 </tr>
 </tbody></table>
-<h4 id='detailed-descriptions-4'>Detailed descriptions</h4>
+<h4 id='detailed-descriptions-5'>Detailed descriptions</h4>
 <p><strong>body</strong>: Payload that contains all informations to initialize a new deposit.</p>
 
 <blockquote>
@@ -3893,7 +4017,7 @@ jwtAuth ( Scopes: deposit ), cookieAuth
 <td>Bolt 11 invoice with the same amount as the request withdraw amount</td>
 </tr>
 </tbody></table>
-<h4 id='detailed-descriptions-5'>Detailed descriptions</h4>
+<h4 id='detailed-descriptions-6'>Detailed descriptions</h4>
 <p><strong>body</strong>: Payload that countains all informations to initiate a new withdraw.</p>
 
 <blockquote>
@@ -4076,7 +4200,7 @@ jwtAuth ( Scopes: withdraw ), cookieAuth
 <td>Unit (Only sat for now)</td>
 </tr>
 </tbody></table>
-<h4 id='detailed-descriptions-6'>Detailed descriptions</h4>
+<h4 id='detailed-descriptions-7'>Detailed descriptions</h4>
 <p><strong>body</strong>: Amount the user wants to withdraw.</p>
 <h4 id='enumerated-values-6'>Enumerated Values</h4>
 <table><thead>
@@ -4204,116 +4328,6 @@ jwtAuth ( Scopes: withdraw ), cookieAuth
 <td>200</td>
 <td><a href="https://tools.ietf.org/html/rfc7231#section-6.3.1">OK</a></td>
 <td>Sucessfully logged out.</td>
-<td>None</td>
-</tr>
-</tbody></table>
-
-<aside class="success">
-This operation does not require authentication
-</aside>
-<h2 id='reset-password'>Reset password</h2>
-<p><a id="opIdUser_resetUserPassword"></a></p>
-
-<blockquote>
-<p>Code samples</p>
-</blockquote>
-<div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
-
-<span class="n">url</span> <span class="o">=</span> <span class="s">"https://api.lnmarkets.com/user/reset-password"</span>
-
-<span class="n">payload</span> <span class="o">=</span> <span class="s">"{</span><span class="se">\"</span><span class="s">login</span><span class="se">\"</span><span class="s">:</span><span class="se">\"</span><span class="s">lnmarkets</span><span class="se">\"</span><span class="s">,</span><span class="se">\"</span><span class="s">paymentHash</span><span class="se">\"</span><span class="s">:</span><span class="se">\"</span><span class="s">b45dd2e30309aa708a73f0cfa0e38db5bbbbd16055087a692e0711365e7e08f5</span><span class="se">\"</span><span class="s">,</span><span class="se">\"</span><span class="s">newPassword</span><span class="se">\"</span><span class="s">:</span><span class="se">\"</span><span class="s">PleaseDontStealMySats</span><span class="se">\"</span><span class="s">}"</span>
-<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s">'content-type'</span><span class="p">:</span> <span class="s">'application/json'</span><span class="p">}</span>
-
-<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">request</span><span class="p">(</span><span class="s">"PUT"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">payload</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
-
-<span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">text</span><span class="p">)</span>
-</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript--node"><code><span class="kd">const</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">request</span><span class="dl">'</span><span class="p">);</span>
-
-<span class="kd">const</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="na">method</span><span class="p">:</span> <span class="dl">'</span><span class="s1">PUT</span><span class="dl">'</span><span class="p">,</span>
-  <span class="na">url</span><span class="p">:</span> <span class="dl">'</span><span class="s1">https://api.lnmarkets.com/user/reset-password</span><span class="dl">'</span><span class="p">,</span>
-  <span class="na">headers</span><span class="p">:</span> <span class="p">{</span><span class="dl">'</span><span class="s1">content-type</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">application/json</span><span class="dl">'</span><span class="p">},</span>
-  <span class="na">body</span><span class="p">:</span> <span class="p">{</span>
-    <span class="na">login</span><span class="p">:</span> <span class="dl">'</span><span class="s1">lnmarkets</span><span class="dl">'</span><span class="p">,</span>
-    <span class="na">paymentHash</span><span class="p">:</span> <span class="dl">'</span><span class="s1">b45dd2e30309aa708a73f0cfa0e38db5bbbbd16055087a692e0711365e7e08f5</span><span class="dl">'</span><span class="p">,</span>
-    <span class="na">newPassword</span><span class="p">:</span> <span class="dl">'</span><span class="s1">PleaseDontStealMySats</span><span class="dl">'</span>
-  <span class="p">},</span>
-  <span class="na">json</span><span class="p">:</span> <span class="kc">true</span>
-<span class="p">};</span>
-
-<span class="nx">request</span><span class="p">(</span><span class="nx">options</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">response</span><span class="p">,</span> <span class="nx">body</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">if</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
-
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">body</span><span class="p">);</span>
-<span class="p">});</span>
-
-</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--request</span> PUT <span class="se">\</span>
-  <span class="nt">--url</span> https://api.lnmarkets.com/user/reset-password <span class="se">\</span>
-  <span class="nt">--header</span> <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
-  <span class="nt">--data</span> <span class="s1">'{"login":"lnmarkets","paymentHash":"b45dd2e30309aa708a73f0cfa0e38db5bbbbd16055087a692e0711365e7e08f5","newPassword":"PleaseDontStealMySats"}'</span>
-</code></pre></div>
-<p><code>PUT /user/reset-password</code></p>
-
-<p>Reset the password thank to your payment hash.</p>
-
-<blockquote>
-<p>Body parameter</p>
-</blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"login"</span><span class="p">:</span><span class="w"> </span><span class="s2">"lnmarkets"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"paymentHash"</span><span class="p">:</span><span class="w"> </span><span class="s2">"b45dd2e30309aa708a73f0cfa0e38db5bbbbd16055087a692e0711365e7e08f5"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"newPassword"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PleaseDontStealMySats"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div>
-<h3 id="reset-password-parameters">Parameters</h3>
-
-<table><thead>
-<tr>
-<th>Name</th>
-<th>In</th>
-<th>Type</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>body</td>
-<td>body</td>
-<td>object</td>
-<td>true</td>
-<td>Payload containing login, payment hash and the new password.</td>
-</tr>
-<tr>
-<td>» newPassword</td>
-<td>body</td>
-<td>string(password)</td>
-<td>true</td>
-<td>New password wanted by the user</td>
-</tr>
-</tbody></table>
-<h4 id='detailed-descriptions-7'>Detailed descriptions</h4>
-<p><strong>body</strong>: Payload containing login, payment hash and the new password.</p>
-
-<h3 id="reset-password-responses">Responses</h3>
-
-<table><thead>
-<tr>
-<th>Status</th>
-<th>Meaning</th>
-<th>Description</th>
-<th>Schema</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>200</td>
-<td><a href="https://tools.ietf.org/html/rfc7231#section-6.3.1">OK</a></td>
-<td>Password successfuly reset.</td>
-<td>None</td>
-</tr>
-<tr>
-<td>400</td>
-<td><a href="https://tools.ietf.org/html/rfc7231#section-6.5.1">Bad Request</a></td>
-<td>The request query and / or body does not fit the schema requirements. It can also be raised by parameters leading to unexpected behaviour / results.</td>
 <td>None</td>
 </tr>
 </tbody></table>
