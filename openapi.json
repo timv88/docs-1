@@ -1245,7 +1245,7 @@
         ],
         "deprecated": false,
         "summary": "History",
-        "description": "Retrieves either opened, closed or all positions.\n\n**If no parameters is sent, the opened positions are fetched by default.**\n",
+        "description": "Retrieves either opened, closed or all positions.\n\n**If no parameters are sent, all positions are fetched.**\n",
         "operationId": "Position_getPositionList",
         "parameters": [
           {
