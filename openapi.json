@@ -1124,7 +1124,8 @@
                     "description": "Margin or quantity should be filled",
                     "type": "integer",
                     "format": "int32",
-                    "minimum": 1
+                    "minimum": 1,
+                    "maximum": 1000000
                   },
                   "leverage": {
                     "description": "Leverage of the order",
@@ -1132,34 +1133,38 @@
                     "format": "double",
                     "multipleOf": 0.01,
                     "minimum": 1,
-                    "maximum": 50
+                    "maximum": 100
                   },
                   "quantity": {
                     "description": "Quantity or margin should be filled",
                     "format": "double",
                     "multipleOf": 0.5,
-                    "minimum": 1
+                    "minimum": 1,
+                    "maximum": 10000000
                   },
                   "takeprofit": {
                     "description": "Takeprofit level",
                     "type": "number",
                     "format": "double",
                     "multipleOf": 0.5,
-                    "minimum": 1
+                    "minimum": 1,
+                    "maximum": 10000000
                   },
                   "stoploss": {
                     "description": "Stoploss level",
                     "type": "number",
                     "format": "double",
                     "multipleOf": 0.5,
-                    "minimum": 1
+                    "minimum": 1,
+                    "maximum": 10000000
                   },
                   "price": {
                     "description": "Required when using a limit order",
                     "type": "number",
                     "format": "double",
                     "multipleOf": 0.5,
-                    "minimum": 1
+                    "minimum": 1,
+                    "maximum": 10000000
                   }
                 },
                 "example": {
@@ -1339,7 +1344,8 @@
                   "value": {
                     "type": "number",
                     "multipleOf": 0.5,
-                    "minimum": 0
+                    "minimum": 0,
+                    "maximum": 10000000
                   }
                 },
                 "example": {
