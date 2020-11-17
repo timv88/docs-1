@@ -64,7 +64,7 @@
           {
             "name": "from",
             "in": "query",
-            "description": "Starting timestamp.",
+            "description": "Starting timestamp (in ms).",
             "schema": {
               "type": "integer",
               "format": "int64",
@@ -74,7 +74,7 @@
           {
             "name": "to",
             "in": "query",
-            "description": "Ending timestamp.",
+            "description": "Ending timestamp (in ms).",
             "schema": {
               "type": "integer",
               "format": "int64",
@@ -93,8 +93,9 @@
                     "type": "object",
                     "properties": {
                       "time": {
-                        "description": "Timestamp at which the data was recorded",
-                        "type": "string"
+                        "description": "Timestamp at which the data was recorded (in µs)",
+                        "type": "integer",
+                        "format": "int64"
                       },
                       "bid": {
                         "description": "Bid value at that time",
@@ -109,7 +110,7 @@
                   "example": {
                     "data": [
                       {
-                        "time": "placeholder",
+                        "time": 1605633250615990,
                         "bid": 15853,
                         "offer": 15885
                       }
@@ -142,7 +143,7 @@
           {
             "name": "from",
             "in": "query",
-            "description": "Starting timestamp.",
+            "description": "Starting timestamp (in ms).",
             "schema": {
               "type": "integer",
               "format": "int64",
@@ -152,7 +153,7 @@
           {
             "name": "to",
             "in": "query",
-            "description": "Ending timestamp.",
+            "description": "Ending timestamp (in ms).",
             "schema": {
               "type": "integer",
               "format": "int64",
@@ -171,7 +172,7 @@
                     "type": "object",
                     "properties": {
                       "time": {
-                        "description": "Timestamp at which the data was recorded",
+                        "description": "Timestamp at which the data was recorded (in µs)",
                         "type": "string"
                       },
                       "index": {
@@ -183,7 +184,7 @@
                   "example": {
                     "data": [
                       {
-                        "time": "placeholder",
+                        "time": 1605633250615990,
                         "index": 15853
                       }
                     ]
