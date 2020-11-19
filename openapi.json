@@ -1899,11 +1899,11 @@
         ],
         "deprecated": false,
         "summary": "Informations",
-        "description": "Fetches UID, username, account type and current balance.\n",
+        "description": "Get the user account Information\n",
         "operationId": "User_getUser",
         "responses": {
           "200": {
-            "description": "User found and informations are fetched.\n",
+            "description": "User information\n",
             "content": {
               "application/json": {
                 "schema": {
@@ -1936,6 +1936,14 @@
                     "last_ip": {
                       "description": "Last login ip",
                       "type": "string"
+                    },
+                    "show_leaderboard": {
+                      "description": "Show the user PL in the leaderboard",
+                      "type": "boolean"
+                    },
+                    "show_username": {
+                      "description": "Show the username on LN Marktes public data, if false show 'Anonymous'",
+                      "type": "boolean"
                     }
                   },
                   "example": {
@@ -1945,7 +1953,9 @@
                     "account_type": "Joule",
                     "username": "Testnet-node",
                     "linkingpublickey": "035555cbdd2b5642bbd196b31df477fad20125ae99119fd5ffb1d42c7f4811dd3a",
-                    "last_ip": "127.0.0.1"
+                    "last_ip": "127.0.0.1",
+                    "show_username": false,
+                    "show_leaderboard": true
                   }
                 }
               }
@@ -1984,16 +1994,21 @@
                 "additionalProperties": false,
                 "properties": {
                   "show_leaderboard": {
-                    "description": "Show the username in the leaderboard",
+                    "description": "Show the user PL in the leaderboard",
+                    "type": "boolean"
+                  },
+                  "show_username": {
+                    "description": "Show the username on LN Marktes public data, if false show 'Anonymous'",
                     "type": "boolean"
                   },
                   "username": {
-                    "description": "Name showed on login and in the leaderboard",
+                    "description": "Username displayed on LN Markets public data",
                     "type": "string",
                     "pattern": "^\\S{6,32}$"
                   }
                 },
                 "example": {
+                  "show_username": false,
                   "show_leaderboard": true,
                   "username": "Cryptoking"
                 }
@@ -2003,7 +2018,63 @@
         },
         "responses": {
           "200": {
-            "description": "The user was successfully updated"
+            "description": "User information\n",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "uid": {
+                      "description": "User's UUID",
+                      "type": "string"
+                    },
+                    "balance": {
+                      "description": "User current balance (avalaible)",
+                      "type": "string"
+                    },
+                    "username": {
+                      "description": "Username",
+                      "type": "string"
+                    },
+                    "login": {
+                      "description": "Login",
+                      "type": "string"
+                    },
+                    "account_type": {
+                      "description": "One of ['lnurl', 'credentials', 'joule']",
+                      "type": "string"
+                    },
+                    "linkingpublickey": {
+                      "description": "Public key used for lnurl or joule account",
+                      "type": "string"
+                    },
+                    "last_ip": {
+                      "description": "Last login ip",
+                      "type": "string"
+                    },
+                    "show_leaderboard": {
+                      "description": "Show the user PL in the leaderboard",
+                      "type": "boolean"
+                    },
+                    "show_username": {
+                      "description": "Show the username on LN Marktes public data, if false show 'Anonymous'",
+                      "type": "boolean"
+                    }
+                  },
+                  "example": {
+                    "uid": "d068f829-26e6-4743-b10d-ebb5a83b3624",
+                    "balance": 361086,
+                    "login": null,
+                    "account_type": "Joule",
+                    "username": "Testnet-node",
+                    "linkingpublickey": "035555cbdd2b5642bbd196b31df477fad20125ae99119fd5ffb1d42c7f4811dd3a",
+                    "last_ip": "127.0.0.1",
+                    "show_username": false,
+                    "show_leaderboard": true
+                  }
+                }
+              }
+            }
           },
           "400": {
             "description": "The request query and / or body does not fit the schema requirements. It can also be raised by parameters leading to unexpected behaviour / results."
